@@ -1,0 +1,17 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+    {% include page_head.html %}
+    <body>
+        {% include_cached page_navbar.html pageUrl=page.url %}
+        {{content}}
+        {% include_cached page_footer.html %}
+    <script src="/assets/js/vendor/jquery.min.js"></script>
+    <script src="{{ "/assets/js/package.min.js" | prepend: site.url | prepend: site.baseurl }} "></script>
+    <script src="{{ "/assets/js/app.min.js" | prepend: site.url | prepend: site.baseurl }} "></script>
+    <script>
+        $(document).foundation();
+    </script>
+</body>
+</html>
