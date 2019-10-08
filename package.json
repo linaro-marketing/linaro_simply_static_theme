@@ -1,0 +1,32 @@
+{
+  "name": "linaro_simply_static_theme",
+  "version": "1.0.0",
+  "description": "A foundation framework / jekyll 4 theme built for Linaro static sites",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/linaro-marketing/linaro_simply_static_theme.git"
+  },
+  "keywords": [
+    "jekyll",
+    "foundation-framework"
+  ],
+  "author": "Kyle Kirkby",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/linaro-marketing/linaro_simply_static_theme/issues"
+  },
+  "homepage": "https://github.com/linaro-marketing/linaro_simply_static_theme#readme",
+  "dependencies": {
+    "browser-sync": "^2.26.7",
+    "foundation-sites": "^6.5.3",
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-rename": "^1.4.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify": "^3.0.2"
+  }
+}
