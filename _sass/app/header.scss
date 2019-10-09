@@ -1,0 +1,15 @@
+#header_carousel {
+   .orbit-container {
+        height: $header_carousel_height;
+        width: auto;
+        figure {
+            img.orbit-image {
+                height: $header_carousel_height;
+                object-fit: cover;
+            }
+            figcaption {
+                text-align: center;
+            }
+        }
+    }
+}
