@@ -62,3 +62,9 @@ defaults:
         path: /assets/images/placeholder.jpg
 # Include the site content
 include: ["_test_site", "_pages"]
+# Social Media Links
+twitter_username: LinaroOrg
+facebook_username: LinaroOrg
+linkedin_username: false
+youtube_username: LinaroOrg
+github_username: Linaro
