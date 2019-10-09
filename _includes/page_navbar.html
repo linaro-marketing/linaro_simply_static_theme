@@ -1,31 +1,9 @@
-<!--Universal Navbar-->
-<div data-sticky-container>
-    <div data-sticky data-options="marginTop:0;" data-sticky-on="small" id="universal_nav_sticky">
-        <div class="title-bar" data-responsive-toggle="universal_navbar" data-hide-for="medium">
-            <div class="title-bar-right">
-                <button id="universal_nav_toggle" class="menu-icon  float-right" type="button" data-toggle></button>
-            </div>
-        </div>
-        <div class="top-bar" id="universal_navbar">
-            <div class="top-bar-right">
-                <ul class="vertical medium-horizontal menu" data-closing-time="300" data-responsive-menu="drilldown medium-dropdown" data-animate-height="true">
-                    <li><a href="#">Linaro</a></li>
-                    <li><a href="#">Connect</a></li>
-                    <li><a href="#">96Boards</a></li>
-                    <li><a href="#">Developer Cloud</a></li>
-                    <li class="has-submenu">
-                        <a href="#0">Projects</a>
-                        <ul class="submenu menu vertical" data-submenu>
-                            <li><a href="#0">96Boards.ai</a></li>
-                            <li><a href="#0">OP-TEE.org</a></li>
-                            <li><a href="#0">DeviceTree.org</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
+
+{% if site.data.nav.universal-nav %}
+    {% include_cached page_universal_navbar.html %}
+{% endif %}
+{% assign page_base = include.pageUrl | split: "/" %}
+{% assign current_page_url = include.pageUrl | replace: "index.html", "" %}
 <div data-sticky-container>
     <div data-sticky data-options="marginTop:0;" data-sticky-on="small" id="main_sticky_nav">
         <div class="title-bar" data-responsive-toggle="main_navbar" data-hide-for="medium">
@@ -43,30 +21,52 @@
                 </div>
             </div>
             <div class="top-bar-right">
-                <ul class="vertical medium-horizontal menu"  data-closing-time="300" data-responsive-menu="drilldown medium-dropdown" data-animate-height="true">
-                    <li><a href="#0">About</a></li>
-                    <li><a href="#0">Membership</a></li>
-                    <li><a href="#0">Services</a></li>
-                    <li><a href="#0">Support</a></li>
-                    <li class="has-submenu">
-                        <a href="#0">Engineering</a>
-                        <ul class="submenu menu vertical" data-submenu>
-                            <li><a href="#0">One</a></li>
-                            <li class="has-submenu">
-                                <a href="#0">Two</a>
+                <ul class="vertical medium-horizontal menu"
+                 data-closing-time="300" data-close-on-click-inside="false"
+                 data-responsive-menu="drilldown medium-dropdown" data-animate-height="true">
+                    {% for item in site.data.nav.pages %}
+
+                        {% assign class = nil %}
+                        {% if current_page_url contains link.url %}
+                            {% assign class = 'active' %}
+                        {% endif %}
+
+                        {% if item.options %}
+                            <li class="has-submenu {{class}}">
+                                <a href="#">{{item.title}}</a>
                                 <ul class="submenu menu vertical" data-submenu>
-                                    <li><a href="#0">One</a></li>
-                                    <li><a href="#0">Two</a></li>
-                                    <li><a href="#0">Three</a></li>
-                                    <li><a href="#0">Three</a></li>
-                                    <li><a href="#0">Three</a></li>
-                                    <li><a href="#0">Three</a></li>
+                                    {% for sub_item in item.options %}
+                                        {% if sub_item.options %}
+                                            <li class="has-submenu">
+                                                <a href="#">{{sub_item.title}}</a>
+                                                <ul class="submenu menu vertical" data-submenu>
+                                                    {% for sub_sub_item in sub_item.options %}
+                                                        <li><a href="#">{{sub_sub_item.title}}</a></li>
+                                                    {% endfor %}
+                                                </ul>
+                                            </li>
+                                        {% else %}
+                                            <li><a href="{{sub_item.url}}">{{sub_item.title}}</a></li>
+                                        {% endif %}
+                                    {% endfor %}
                                 </ul>
                             </li>
-                        </ul>
-                    </li>
-                    <li class="active"><a href="#0">Two</a></li>
-                    <li><a href="#0">Latest</a></li>
+                        {% else %}
+                            <li class="{{class}}"><a href="{{item.url}}"><span>{{item.title}}</span></a></li>
+                        {% endif %}
+                    {% endfor %}
+                    {% if site.data.nav.search_enabled %}
+                        <li class="has-submenu">
+                            <a href="#"><i class="icon-search-outline"></i></a>
+                            <ul class="submenu menu vertical" data-close-on-click="false" data-submenu>
+                                <li>
+                                    <form class="form-inline" action="/search/" method="GET" target="_self" id="search_form">
+                                        <input type="search" placeholder="Search">
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+                    {% endif %}
                 </ul>
             </div>
         </div>
