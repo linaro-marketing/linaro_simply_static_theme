@@ -27,6 +27,7 @@
     "gulp-concat": "^2.6.1",
     "gulp-rename": "^1.4.0",
     "gulp-sourcemaps": "^2.6.5",
-    "gulp-uglify": "^3.0.2"
+    "gulp-uglify": "^3.0.2",
+    "motion-ui": "^2.0.3"
   }
 }
