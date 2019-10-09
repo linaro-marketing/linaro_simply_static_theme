@@ -38,7 +38,9 @@
          }
     }
     .social_media_links {
-        text-align: center;
+        @include breakpoint(small only) {
+            text-align:center;
+        }
     }
 }
 #footer_copyright {
