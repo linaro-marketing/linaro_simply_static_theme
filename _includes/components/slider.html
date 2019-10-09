@@ -1,0 +1,40 @@
+<div class="orbit" role="region" aria-label="Page Slider" data-orbit id="header_carousel">
+    <div class="orbit-wrapper">
+        <div class="orbit-controls">
+            <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
+            <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
+        </div>
+        <ul class="orbit-container">
+            {% for slide in include.sliderObj.slides %}
+            <li class="{% if forloop.first %}is-active{% endif %} orbit-slide" style="height:500px">
+                <figure class="orbit-figure darken">
+                    <img class="orbit-image" src="{{slide.image}}" alt="Space">
+                    <figcaption class="orbit-caption">
+                        {% if slide.title %}
+                            <h3>{{slide.title}}</h3>
+                        {% endif %}
+                        {% if slide.text %}
+                            <p>{{slide.text}}</p>
+                        {% endif %}
+                        {% if slide.button %}
+                            <a href="{{slide.button.url}}"
+                             class="button {% if slide.button.class %}{{slide.button.class}}{% endif %}">
+                                {{slide.button.title}}</a>
+                        {% endif %}
+                    </figcaption>
+                </figure>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <nav class="orbit-bullets">
+        {% for slide in include.sliderObj.slides %}
+        <button {% if forloop.first %}class="is-active"{% endif %} data-slide="{{forloop.index | minus: 1}}">
+            <span class="show-for-sr"> Slide {{ forloop.index }} details.</span>
+            {% if forloop.first %}
+                <span class="show-for-sr" data-slide-active-label>Current Slide</span>
+            {% endif %}
+        </button>
+        {% endfor %}
+    </nav>
+</div>
