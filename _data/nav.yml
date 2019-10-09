@@ -1,0 +1,118 @@
+# Search Config
+search:
+    enabled: true
+    label: Linaro
+# Universal Nav Bar Toggle
+universal-nav: true
+# Nav Brand Config
+brand:
+    image_path: https://github.com/Linaro/website/raw/master/assets/images/content/linaro-logo.png
+    url: /
+pages:
+    - title: About
+      options:
+          - text: Overview
+            url: /about/
+          - text: Team
+            options:
+                - text: The Team
+                  url: /about/team/
+                - text: Board of Directors
+                  url: /about/team/board/
+                - text: Executive Team
+                  url: /about/team/executive/
+                - text: Technical Steering Committee
+                  url: /about/team/technical-steering-committee/
+                - text: Awards
+                  url: /awards/
+          - text: Join Us
+            url: /about/join-us/
+          - text: Contact Us
+            url: /contact/
+    - title: Membership
+      url: /membership/
+    - title: Engineering
+      left: true
+      options:
+          - text: Overview
+            url: /engineering/
+          - text: Core Engineering on Arm
+            options:
+                - text: Overview
+                  url: /engineering/core/
+                - text: Kernel Validation
+                  url: /engineering/core/kernel-validation-and-testing/
+                - text: Core Technologies & Tools
+                  url: /engineering/core/ctt/
+                - text: Toolchain
+                  url: /engineering/core/toolchain/
+                - text: Kernel
+                  url: /engineering/core/kernel/
+                - text: Arm Power Management
+                  url: /engineering/core/arm-power-management/
+                - text: Security
+                  url: /engineering/core/security/
+                - text: Devicetree Evolution
+                  url: /engineering/core/devicetree-evolution/
+          - text: Datacenter & Cloud
+            url: /engineering/datacenter-and-cloud/
+          - text: Edge & Fog Computing
+            url: /engineering/edge-and-fog-computing/
+          - text: Consumer
+            url: /engineering/consumer/
+          - text: IoT & Embedded
+            url: /engineering/iot-and-embedded/
+          - text: Autonomous Vehicles
+            url: /engineering/autonomous-vehicles/
+          - text: Artificial Intelligence
+            url: /engineering/artificial-intelligence/
+          - text: High Performance Computing
+            url: /engineering/high-performance-computing/
+          # - text: Upstream Projects
+          #   url: /engineering/projects/
+    - title: Services
+      options:
+          - text: Overview
+            url: /services/
+          - text: Security
+            url: /services/security/
+          - text: Bootloaders
+            url: /services/bootloaders/
+          - text: Kernels and Long Term Support
+            url: /services/kernel-lts/
+          - text: BSP’s, Builds and Support
+            url: /services/bsp-builds-support/
+          - text: Power Management Tuning
+            url: /services/power-management/
+          - text: 96Boards
+            url: /services/96boards/
+          - text: Toolchain Optimization
+            url: /services/toolchain-optimization-services/
+          - text: Open Source Consultancy
+            url: /services/open-source-consultancy/
+          - text: Testing and Validation
+            url: /services/testing-validation-services/
+          - text: Hands on Training
+            url: /services/hands-on-training/
+    - title: Support
+      url: /support/
+    - title: Downloads
+      left: true
+      options:
+          - text: Downloads
+            url: /downloads/
+          - text: Security Downloads
+            url: /downloads/security/
+    - title: Latest
+      left: true
+      options:
+          - text: Resources
+            url: /resources/
+          - text: News
+            url: /news/
+          - text: Blog
+            url: /blog/
+          - text: Events
+            url: /events/
+          - text: Planet
+            url: /planet/
