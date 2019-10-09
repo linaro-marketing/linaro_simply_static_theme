@@ -1,40 +1,74 @@
-<div class="top-bar" id="responsive-menu">
-    <div class="top-bar-right">
-        <ul class="menu align-right">
-            <li><a href="#">One</a></li>
-            <li><a href="#">Two</a></li>
-            <li><a href="#">Three</a></li>
-            <li><a href="#">Four</a></li>
-        </ul>
-    </div>
-</div>
-<div class="top-bar" id="responsive-menu">
-    <div class="top-bar-left">
-        <ul class="vertical medium-horizontal menu" data-responsive-menu="drilldown medium-dropdown">
-            <li class="menu-text">LSST</li>
-        </ul>
-
-    </div>
-    <div class="top-bar-right">
-        <ul class="vertical medium-horizontal menu" data-responsive-menu="drilldown medium-dropdown">
-            <li class="has-submenu">
-                <a href="#0">One</a>
-                <ul class="submenu menu vertical" data-submenu>
-                    <li><a href="#0">One</a></li>
+<!--Universal Navbar-->
+<div data-sticky-container>
+    <div data-sticky data-options="marginTop:0;" data-sticky-on="small" id="universal_nav_sticky">
+        <div class="title-bar" data-responsive-toggle="universal_navbar" data-hide-for="medium">
+            <div class="title-bar-right">
+                <button id="universal_nav_toggle" class="menu-icon  float-right" type="button" data-toggle></button>
+            </div>
+        </div>
+        <div class="top-bar" id="universal_navbar">
+            <div class="top-bar-right">
+                <ul class="vertical medium-horizontal menu" data-closing-time="300" data-responsive-menu="drilldown medium-dropdown" data-animate-height="true">
+                    <li><a href="#">Linaro</a></li>
+                    <li><a href="#">Connect</a></li>
+                    <li><a href="#">96Boards</a></li>
+                    <li><a href="#">Developer Cloud</a></li>
                     <li class="has-submenu">
-                        <a href="#0">Two</a>
+                        <a href="#0">Projects</a>
                         <ul class="submenu menu vertical" data-submenu>
-                            <li><a href="#0">One</a></li>
-                            <li><a href="#0">Two</a></li>
-                            <li><a href="#0">Three</a></li>
+                            <li><a href="#0">96Boards.ai</a></li>
+                            <li><a href="#0">OP-TEE.org</a></li>
+                            <li><a href="#0">DeviceTree.org</a></li>
                         </ul>
                     </li>
                 </ul>
-            </li>
-            <li><a href="#0">Two</a></li>
-            <li><a href="#0">Three</a></li>
-            <li><input type="search" placeholder="Search"></li>
-            <li><button type="button" class="button">Search</button></li>
-        </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div data-sticky-container>
+    <div data-sticky data-options="marginTop:0;" data-sticky-on="small" id="main_sticky_nav">
+        <div class="title-bar" data-responsive-toggle="main_navbar" data-hide-for="medium">
+            <div class="title-bar-right">
+                <button class="menu-icon  float-right" type="button" data-toggle></button>
+                <div class="title-bar-title  float-left"><img src="{{site.data.nav.brand.image_path}}" alt="{{site.title}} Brand logo" /></div>
+            </div>
+        </div>
+        <div class="top-bar" id="main_navbar">
+            <div class="top-bar-left">
+                <div class="hide-for-small-only top-bar-title">
+                    <a href="{{site.data.nav.brand.url}}">
+                        <img src="{{site.data.nav.brand.image_path}}" alt="{{site.title}} Brand logo" />
+                    </a>
+                </div>
+            </div>
+            <div class="top-bar-right">
+                <ul class="vertical medium-horizontal menu"  data-closing-time="300" data-responsive-menu="drilldown medium-dropdown" data-animate-height="true">
+                    <li><a href="#0">About</a></li>
+                    <li><a href="#0">Membership</a></li>
+                    <li><a href="#0">Services</a></li>
+                    <li><a href="#0">Support</a></li>
+                    <li class="has-submenu">
+                        <a href="#0">Engineering</a>
+                        <ul class="submenu menu vertical" data-submenu>
+                            <li><a href="#0">One</a></li>
+                            <li class="has-submenu">
+                                <a href="#0">Two</a>
+                                <ul class="submenu menu vertical" data-submenu>
+                                    <li><a href="#0">One</a></li>
+                                    <li><a href="#0">Two</a></li>
+                                    <li><a href="#0">Three</a></li>
+                                    <li><a href="#0">Three</a></li>
+                                    <li><a href="#0">Three</a></li>
+                                    <li><a href="#0">Three</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="active"><a href="#0">Two</a></li>
+                    <li><a href="#0">Latest</a></li>
+                </ul>
+            </div>
+        </div>
     </div>
 </div>
