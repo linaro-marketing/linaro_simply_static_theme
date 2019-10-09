@@ -1,1 +1,59 @@
 {% include_cached page_github_edit.html pagePath=page.path pagePermalink=page.permalink %}
+<div class="grid-container fluid" id="footer_sections">
+    <div class="grid-container">
+        <div class="grid-x grid-margin-x align-stretch">
+            {% assign col_size = site.data.footer.sections | size %}
+            {% assign col_size_calculated = 12 | divided_by: col_size %}
+            {% for section in site.data.footer.sections %}
+                <div class="cell small-12 medium-{{col_size_calculated}}">
+                    {% if section.title_url %}<a href="{{section.title_url}}">{% endif %}
+                    <h3>{{section.title}}</h3>
+                    {% if section.title_url %}</a>{% endif %}
+
+                    {% if section.multiline_text %}
+                        <p>
+                            {% for line in section.multiline_text %}
+                                {{line}}<br>
+                            {% endfor %}
+                        </p>
+                    {% endif %}
+
+                    {% if section.latest_posts %}
+                        {% include_cached components/latest_posts.html %}
+                    {% elsif section.social_media_links %}
+                        {% include_cached components/social_media_links.html %}
+                    {% elsif section.items %}
+                    <ul>
+                        {% for item in section.items %}
+                            <li>
+                                <a href="{{item.url}}">{{item.title}}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<div class="grid-container fluid" id="footer_copyright">
+    <div class="grid-container">
+        <div class="grid-x grid-margin-x">
+            <div class="cell small-12">
+                {{site.data.footer.copyright_section.text}}
+                {% if site.data.footer.copyright_section.links %}
+                    {% for link in site.data.footer.copyright_section.links %}
+                        <span class="coloured-bp">&bull;</span>
+                        <a href="{{link.url}}">{{link.title}}</a>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div class="cell small-12">
+                {% if site.data.footer.copyright_section.image %}
+                    <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                     data-src="{{site.data.footer.copyright_section.image}}" />
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
