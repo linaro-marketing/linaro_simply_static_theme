@@ -1,0 +1,33 @@
+<!--Universal Navbar-->
+<div data-sticky-container>
+    <div data-sticky data-options="marginTop:0;" data-sticky-on="small" id="universal_nav_sticky">
+        <div class="title-bar" data-responsive-toggle="universal_navbar" data-hide-for="medium">
+            <div class="title-bar-right">
+                <button id="universal_nav_toggle" class="menu-icon  float-right" type="button" data-toggle></button>
+            </div>
+        </div>
+        <div class="top-bar" id="universal_navbar">
+            <div class="top-bar-right">
+                <ul class="vertical medium-horizontal menu" data-closing-time="300"
+                    data-responsive-menu="drilldown medium-dropdown" data-animate-height="true">
+                    {% for item in site.data.universal_nav.items %}
+                        {% if item.options %}
+                        <li class="has-submenu">
+                            <a href="#0">{{item.title}}</a>
+                            <ul class="submenu menu vertical" data-submenu>
+                                {% for project-site in item.options %}
+                                <li {% if project-site.active %}class="active" {% endif%}><a target="_self"
+                                        href="{{project-site.url}}">{{project-site.title}}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                        {% else %}
+                        <li {% if item.active %}class="active" {% endif %}><a class="linaro" target="_self"
+                                href="{{item.url}}">{{item.title}}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
