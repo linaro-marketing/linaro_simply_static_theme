@@ -16,6 +16,8 @@ var sourcemaps = require('gulp-sourcemaps');
 var package_javascript_sources = [
     "assets/js/vendor/modernizr.min.js",
     "assets/js/vendor/fastclick.js",
+    "assets/js/vendor/lazysizes.js",
+    "assets/js/vendor/ls.unveilhooks.js",
     "assets/js/vendor/what-input.min.js",
     "node_modules/foundation-sites/dist/js/foundation.min.js",
 ];
