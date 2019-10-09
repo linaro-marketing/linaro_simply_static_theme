@@ -45,10 +45,38 @@ $universal_navbar_item_colour_hover: $topbar-background;
     }
     // Main
     #main_navbar {
+        input {
+            max-width: 100%;
+        }
         .title-bar-title {
             img {
                 height: 50px;
             }
+        }
+        .js-drilldown-back {
+            li{
+                a::before {
+                    border-color: transparent white transparent transparent;
+                }
+                &:hover {
+                    a::before {
+                        border-color: transparent white transparent transparent;
+                    }
+                }
+            }
+        }
+        .is-drilldown-submenu-parent {
+            li {
+                &:hover {
+                    a::after {
+                        border-color: transparent transparent transparent white;
+                    }
+                }
+                a::after {
+                    border-color: transparent transparent transparent  $primary-color;
+                }
+            }
+
         }
     }
 }
@@ -67,17 +95,44 @@ $universal_navbar_item_colour_hover: $topbar-background;
     }
     #universal_navbar {
         background-color: $primary-color;
-        .menu > li > a {
-            text-transform: uppercase;
-            background-color: $primary-color;
-            font-size: 12px;
-            color: white;
-            padding: 20px;
-            padding-top: 5px;
-            padding-bottom: 5px;
+        .menu > li {
+            &.active {
+                a {
+                    background-color:#000;
+                }
+            }
+            a {
+                text-transform: uppercase;
+                background-color: $primary-color;
+                font-size: 12px;
+                color: white;
+                padding: 20px;
+                padding-top: 5px;
+                padding-bottom: 5px;
+                &:hover {
+                    background-color: $universal_navbar_item_colour_hover;
+                    color: $universal_navbar_item_text_colour_hover;
+                }
+        }
+        }
+        .js-drilldown-back {
+            a::before {
+                border-color: transparent white transparent transparent;
+            }
             &:hover {
-                background-color: $universal_navbar_item_colour_hover;
-                color: $universal_navbar_item_text_colour_hover;
+                a::before {
+                    border-color: transparent $universal_navbar_item_text_colour_hover transparent transparent;
+                }
+            }
+        }
+        .is-drilldown-submenu-parent {
+            &:hover {
+                a::after {
+                    border-color: transparent transparent transparent $universal_navbar_item_text_colour_hover;
+                }
+            }
+            a::after {
+                border-color: transparent transparent transparent  $universal_navbar_item_text_colour;
             }
         }
     }
@@ -102,8 +157,6 @@ $universal_navbar_item_colour_hover: $topbar-background;
 }
 .is-drilldown { overflow:visible }
 
-
-
 .dropdown.menu > li.is-dropdown-submenu-parent > a::after {
 	border-color: white transparent transparent;
 }
@@ -111,16 +164,7 @@ $universal_navbar_item_colour_hover: $topbar-background;
 .is-drilldown-submenu-parent > a::after {
 	border-color: transparent transparent transparent white;
 }
-.js-drilldown-back {
-    a::before {
-        border-color: transparent white transparent transparent;
-    }
-    &:hover {
-        a::before {
-            border-color: transparent white transparent transparent;
-        }
-    }
-}
+
 .is-dropdown-submenu {
   width: 300px;
 }
