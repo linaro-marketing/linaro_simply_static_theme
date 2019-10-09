@@ -1,0 +1,46 @@
+sections:
+    - title: contact@linaro.org
+      title_url: mailto:contact@linaro.org
+      multiline_text:
+        - Harston Mill
+        - Royston Rd, Harston
+        - Cambridge, United Kingdom
+        - CB22 7GG
+    - title: Latest Blogs
+      # latest_posts: true
+      items:
+       - title: 96Boards
+         url: https://www.96boards.org
+       - title: 96Boards
+         url: https://www.96boards.org
+       - title: 96Boards
+         url: https://www.96boards.org
+       - title: 96Boards
+         url: https://www.96boards.org
+       - title: 96Boards
+         url: https://www.96boards.org
+    - title: Other Projects
+      items:
+       - title: 96Boards
+         url: https://www.96boards.org
+       - title: 96Boards
+         url: https://www.96boards.org
+       - title: 96Boards
+         url: https://www.96boards.org
+       - title: 96Boards
+         url: https://www.96boards.org
+       - title: 96Boards
+         url: https://www.96boards.org
+    - title: Follow Us
+      social_media_links: true
+copyright_section:
+  text: >
+    Copyright &copy; Linaro Ltd
+  links:
+    - title: Legal
+      url: /legal/
+    - title: Contact
+      url: /contact/
+    - title: Press
+      url: /press/
+  image: https://www.linaro.org/assets/images/Linaro-logo-white.png

@@ -1,7 +1,5 @@
 # Search Config
-search:
-    enabled: true
-    label: Linaro
+search_enabled: true
 # Universal Nav Bar Toggle
 universal-nav: true
 # Nav Brand Config
@@ -11,108 +9,103 @@ brand:
 pages:
     - title: About
       options:
-          - text: Overview
+          - title: Overview
             url: /about/
-          - text: Team
+          - title: Team
             options:
-                - text: The Team
+                - title: The Team
                   url: /about/team/
-                - text: Board of Directors
+                - title: Board of Directors
                   url: /about/team/board/
-                - text: Executive Team
+                - title: Executive Team
                   url: /about/team/executive/
-                - text: Technical Steering Committee
+                - title: Technical Steering Committee
                   url: /about/team/technical-steering-committee/
-                - text: Awards
+                - title: Awards
                   url: /awards/
-          - text: Join Us
+          - title: Join Us
             url: /about/join-us/
-          - text: Contact Us
+          - title: Contact Us
             url: /contact/
     - title: Membership
       url: /membership/
     - title: Engineering
-      left: true
       options:
-          - text: Overview
+          - title: Overview
             url: /engineering/
-          - text: Core Engineering on Arm
+          - title: Core Engineering on Arm
             options:
-                - text: Overview
+                - title: Overview
                   url: /engineering/core/
-                - text: Kernel Validation
+                - title: Kernel Validation
                   url: /engineering/core/kernel-validation-and-testing/
-                - text: Core Technologies & Tools
+                - title: Core Technologies & Tools
                   url: /engineering/core/ctt/
-                - text: Toolchain
+                - title: Toolchain
                   url: /engineering/core/toolchain/
-                - text: Kernel
+                - title: Kernel
                   url: /engineering/core/kernel/
-                - text: Arm Power Management
+                - title: Arm Power Management
                   url: /engineering/core/arm-power-management/
-                - text: Security
+                - title: Security
                   url: /engineering/core/security/
-                - text: Devicetree Evolution
+                - title: Devicetree Evolution
                   url: /engineering/core/devicetree-evolution/
-          - text: Datacenter & Cloud
+          - title: Datacenter & Cloud
             url: /engineering/datacenter-and-cloud/
-          - text: Edge & Fog Computing
+          - title: Edge & Fog Computing
             url: /engineering/edge-and-fog-computing/
-          - text: Consumer
+          - title: Consumer
             url: /engineering/consumer/
-          - text: IoT & Embedded
+          - title: IoT & Embedded
             url: /engineering/iot-and-embedded/
-          - text: Autonomous Vehicles
+          - title: Autonomous Vehicles
             url: /engineering/autonomous-vehicles/
-          - text: Artificial Intelligence
+          - title: Artificial Intelligence
             url: /engineering/artificial-intelligence/
-          - text: High Performance Computing
+          - title: High Performance Computing
             url: /engineering/high-performance-computing/
-          # - text: Upstream Projects
-          #   url: /engineering/projects/
     - title: Services
       options:
-          - text: Overview
+          - title: Overview
             url: /services/
-          - text: Security
+          - title: Security
             url: /services/security/
-          - text: Bootloaders
+          - title: Bootloaders
             url: /services/bootloaders/
-          - text: Kernels and Long Term Support
+          - title: Kernels and Long Term Support
             url: /services/kernel-lts/
-          - text: BSP’s, Builds and Support
+          - title: BSP’s, Builds and Support
             url: /services/bsp-builds-support/
-          - text: Power Management Tuning
+          - title: Power Management Tuning
             url: /services/power-management/
-          - text: 96Boards
+          - title: 96Boards
             url: /services/96boards/
-          - text: Toolchain Optimization
+          - title: Toolchain Optimization
             url: /services/toolchain-optimization-services/
-          - text: Open Source Consultancy
+          - title: Open Source Consultancy
             url: /services/open-source-consultancy/
-          - text: Testing and Validation
+          - title: Testing and Validation
             url: /services/testing-validation-services/
-          - text: Hands on Training
+          - title: Hands on Training
             url: /services/hands-on-training/
     - title: Support
       url: /support/
     - title: Downloads
-      left: true
       options:
-          - text: Downloads
+          - title: Downloads
             url: /downloads/
-          - text: Security Downloads
+          - title: Security Downloads
             url: /downloads/security/
     - title: Latest
-      left: true
       options:
-          - text: Resources
+          - title: Resources
             url: /resources/
-          - text: News
+          - title: News
             url: /news/
-          - text: Blog
+          - title: Blog
             url: /blog/
-          - text: Events
+          - title: Events
             url: /events/
-          - text: Planet
+          - title: Planet
             url: /planet/
