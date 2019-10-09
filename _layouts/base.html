@@ -1,12 +1,14 @@
 ---
 ---
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
     {% include page_head.html %}
     <body>
-        {% include_cached page_navbar.html pageUrl=page.url %}
-        {{content}}
-        {% include_cached page_footer.html %}
+        {% include page_navbar.html pageUrl=page.url %}
+        <div id="root">
+            {{content}}
+        </div>
+        {% include page_footer.html %}
     <script src="/assets/js/vendor/jquery.min.js"></script>
     <script src="{{ "/assets/js/package.min.js" | prepend: site.url | prepend: site.baseurl }} "></script>
     <script src="{{ "/assets/js/app.min.js" | prepend: site.url | prepend: site.baseurl }} "></script>
