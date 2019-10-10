@@ -15,11 +15,13 @@ var sourcemaps = require('gulp-sourcemaps');
 // Javascript Sources
 var package_javascript_sources = [
     "assets/js/vendor/modernizr.min.js",
+    "node_modules/foundation-sites/dist/js/foundation.min.js",
     "assets/js/vendor/fastclick.js",
+    "assets/js/vendor/featherlight.js",
     "assets/js/vendor/lazysizes.js",
     "assets/js/vendor/ls.unveilhooks.js",
+    "assets/js/vendor/owl.carousel.js",
     "assets/js/vendor/what-input.min.js",
-    "node_modules/foundation-sites/dist/js/foundation.min.js",
 ];
 var app_javascript_sources = [
     "assets/js/app/**/*",
@@ -93,7 +95,8 @@ function watchFiles() {
             "./_posts/**/*",
             "./assets/css/**/*",
             "./_data/**/*",
-            "./_sass/**/*"
+            "./_sass/**/*",
+            "./_test_site/**/*"
         ],
         gulp.series(jekyll, package_script, app_script, browserSyncReload)
     );
