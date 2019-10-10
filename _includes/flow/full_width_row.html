@@ -1,0 +1,7 @@
+<div class="grid-container fluid {% if include.object.style %}{{include.object.style}}{% endif %}
+{% if include.object.background_image %}background_image_row overlay{% endif %}"
+{% if include.object.background_image %}style="background-image: url({{include.object.background_image}}), linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));"{% endif %}>
+    <div class="grid-x grid-margin-x">
+        {% include flow/flow_sections.html sections=include.object.sections %}
+    </div>
+</div>

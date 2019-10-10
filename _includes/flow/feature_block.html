@@ -1,0 +1,40 @@
+<div class="cell feature_block">
+    <div class="grid-x grid-padding-x align-middle">
+        <div class="cell small-12 medium-7 block__image {% if include.object.position == "right" %}small-order-2 medium-order-2{% endif %}">
+            {% if include.object.type == "image" %}
+                {% assign image_path = include.object.image_content_path | remove_first: '/assets/images/' %}
+                {% assign full_path = include.object.image_content_path %}
+                {% if include.object.image_content_is_svg %}
+                    <img class="img-fluid svg_image {% if include.object.image_content_style %}{{include.object.image_content_style}}{% endif %}"
+                        alt="{{include.object.image_content_alt}}" src="{{include.object.image_content_path | prepend: site.baseurl }}" />
+                {% else %}
+                    {% picture feature_block_image {{image_path}} %}
+                {% endif %}
+            {% elsif include.object.type == "slider" %}
+                {% include flow/slider.html object=include.object.slider_content %}
+            {% elsif include.object.type == "youtube_video" %}
+                {% include components/youtube_video_embed.html object=include.object.video_content_url %}
+            {% else %}
+                <p>Please verify the feature_block content "type" is correct</p>
+            {% endif %}
+        </div>
+        <div class="cell small-12 medium-5 block__text {% if include.object.position == "right" %}small-order-1 medium-order-1{% endif %}">
+            {% if include.object.title %}
+                <h2>{{include.object.title}}</h2>
+            {% endif %}
+            {% if include.object.highlight-text %}
+                <div class="font-weight-bold">
+                    {{include.object.highlight-text | markdownify }}
+                </div>
+            {% endif %}
+            {% if include.object.text == "page_content" %}
+                {{page.content | markdownify }}
+            {% else %}
+                {{include.object.text | markdownify}}
+            {% endif %}
+            {% if include.object.buttons %}
+                {% include flow/buttons.html object=include.object.buttons %}
+            {% endif %}
+        </div>
+    </div>
+</div>
