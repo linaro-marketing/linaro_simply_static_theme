@@ -1,0 +1,57 @@
+#flow_wrapper {
+    .grid-container {
+        // Fluid Rows
+        &.fluid {
+            padding-top:$flow_row_padding;
+            padding-bottom:$flow_row_padding;
+        }
+    }
+    // Blocks / Cards
+    .block_row {
+        .card {
+            -webkit-box-shadow: 0px 0px 5px -4px rgba(0,0,0,0.75);
+            -moz-box-shadow: 0px 0px 5px -4px rgba(0,0,0,0.75);
+            box-shadow: 0px 0px 5px -4px rgba(0,0,0,0.75);
+            transition: all 200ms ease-in-out;
+            position: relative;
+            img {
+                height: 175px;
+                margin: auto auto;
+                position: relative;
+                display: block;
+            }
+            &:hover {
+                transform: translateY(-5px);
+                -webkit-box-shadow: 0px 0px 35px -4px rgba(0,0,0,0.85);
+                -moz-box-shadow: 0px 0px 35px -4px rgba(0,0,0,0.85);
+                box-shadow: 0px 0px 35px -4px rgba(0,0,0,0.85);
+                i.block_image_icon {
+                    color: $primary-color;
+                }
+            }
+            h3 {
+                color: $body-font-color;
+            }
+            p {
+                color: $body-font-color;
+            }
+        }
+    }
+    // Members Section
+    .members_section {
+        padding: 40px 0;
+        img {
+            height: 100px;
+            position: relative;
+            margin: auto auto;
+            display:block;
+        }
+    }
+    // Feature Blocks
+    .feature_block {
+        padding: 20px 0;
+        .owl-carousel {
+            z-index: 1;
+        }
+    }
+}
