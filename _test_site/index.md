@@ -13,7 +13,7 @@ header:
         A lightweight foundation css framework Jekyll theme.
     buttons:
         - title: Learn More
-          url: /learn/
+          url: /flow/
           class: large
         - title: View on Github
           url: /learn/
