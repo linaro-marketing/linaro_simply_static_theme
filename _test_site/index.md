@@ -5,8 +5,8 @@ title: The Linaro Simply Static Theme
 description: >
     A lightweight foundation css framework Jekyll theme.
 header:
-    background_image: https://placehold.it/2000x750&text=1st
-    background_class: darken test_background_class
+    image: https://placehold.it/2000x750&text=1st
+    class: darken test_background_class
     title: The Linaro Simply Static Theme
     inner_image: https://github.com/Linaro/website/raw/master/assets/images/content/linaro-logo.png
     text: >
