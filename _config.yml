@@ -19,6 +19,17 @@ plugins:
   - jekyll-include-cache
   - jekyll-seo-tag
   - jekyll-include-cache
+  - jekyll-paginate-v2
+collections:
+  authors:
+    output: true
+    permalink: /author/:name/
+    layout: page
+  # Test the products config
+  products:
+    output: true
+    permalink: /product/:name/
+    layout: product
 # SASS Config
 sass:
   sass_dir: _sass
@@ -52,11 +63,18 @@ defaults:
   - scope:
       path: "" # an empty string here means all files in the project
     values:
-      layout: "default"
+      layout: "page"
   - scope:
       type: posts # an empty string here means all files in the project
     values:
       layout: "post"
+      is_post: true
+      image:
+        path: /assets/images/placeholder.jpg
+  - scope:
+      type: products # an empty string here means all files in the project
+    values:
+      layout: "product"
       is_post: true
       image:
         path: /assets/images/placeholder.jpg
@@ -68,3 +86,27 @@ facebook_username: LinaroOrg
 linkedin_username: false
 youtube_username: LinaroOrg
 github_username: Linaro
+social_share_image: /assets/images/social-media-image.png
+disqus_shortname: linaro
+# Jekyll Pagination V2 Configuration
+pagination:
+  # Default pagination path for Jekyll Posts
+  # For other permalinks set in the front matter of the post index page
+  permalink: /:num/
+  # Enabled or not?
+  enabled: true
+  # Home many posts to display by default
+  per_page: 9
+  # Number of pages to show either side of the current page i.e - 1, 2, {3}, 4, 5
+  trail:
+    before: 2
+    after: 2
+  # Reverse the order of paginated pages
+  sort_reverse: true
+  # Field to sort posts by when paginating
+  sort_field: "date"
+# Jekyll pagination v2 autopages configuration.
+autopages:
+  enabled: false
+#Test config
+breadcrumb_image: /assets/images/content/breadcrumb.png
