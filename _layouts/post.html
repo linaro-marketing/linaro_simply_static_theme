@@ -1,4 +1,38 @@
 ---
 layout: base
 ---
-{{ content }}
+<div class="grid-x grid-padding-x flex-container align-middle callout large darken"
+    {% if page.image %} style="background-image:url({% if page.image.path %}{{page.image.path}}{% else %}{{page.image}}{% endif %});" {% endif %}>
+    <div class="cell text-center">
+        <h1>{{page.title}}</h1>
+        <p class="lead">{{header.text}}</p>
+        {% assign author = site.authors | where: "username", page.author | first %}
+        {% assign author-url = author.url %}
+        <a href="{{author-url}}">
+            <div class="blog-author-image lazyload"
+                data-bg="{% if author.image_path %}{{author.image_path}}{% else %}{{site.data.settings.blog.avatar_placeholder}}{% endif %}">
+            </div>
+        </a>
+        <small class="blog-author text-center">
+            By
+            <em>{% if author.name %}{{author.name}}{% else %}{{page.author}}{% endif %}</em>
+        </small>
+        <small class="blog-date text-center">
+            <em>{{page.date |  date: "%A, %B %-d, %Y"}}</em>
+        </small>
+        {% include components/read_time.html %}
+    </div>
+</div>
+<div class="grid-container fluid main_content_row">
+    <div class="grid-container">
+        <div class="grid-x grid-margin-x">
+            <div class="cell medium-8 medium-offset-2">
+                <article class="post-content">
+                    {{ content }}
+                    {% include components/post_series.html %}
+                </article>
+                {% include components/disqus_comments.html %}
+            </div>
+        </div>
+    </div>
+</div>
