@@ -1,5 +1,5 @@
 # Search Config
-search_enabled: true
+search_enabled: false
 # Universal Nav Bar Toggle
 universal-nav: true
 # Nav Brand Config
@@ -11,6 +11,40 @@ pages:
       options:
           - title: Overview
             url: /about/
+          - title: Engineering
+            options:
+                - title: Core Engineering on Arm
+                  options:
+                      - title: Overview
+                        url: /engineering/core/
+                      - title: Kernel Validation
+                        url: /engineering/core/kernel-validation-and-testing/
+                      - title: Core Technologies & Tools
+                        url: /engineering/core/ctt/
+                      - title: Toolchain
+                        url: /engineering/core/toolchain/
+                      - title: Kernel
+                        url: /engineering/core/kernel/
+                      - title: Arm Power Management
+                        url: /engineering/core/arm-power-management/
+                      - title: Security
+                        url: /engineering/core/security/
+                      - title: Devicetree Evolution
+                        url: /engineering/core/devicetree-evolution/
+                - title: Datacenter & Cloud
+                  url: /engineering/datacenter-and-cloud/
+                - title: Edge & Fog Computing
+                  url: /engineering/edge-and-fog-computing/
+                - title: Consumer
+                  url: /engineering/consumer/
+                - title: IoT & Embedded
+                  url: /engineering/iot-and-embedded/
+                - title: Autonomous Vehicles
+                  url: /engineering/autonomous-vehicles/
+                - title: Artificial Intelligence
+                  url: /engineering/artificial-intelligence/
+                - title: High Performance Computing
+                  url: /engineering/high-performance-computing/
           - title: Team
             options:
                 - title: The Team
@@ -23,48 +57,20 @@ pages:
                   url: /about/team/technical-steering-committee/
                 - title: Awards
                   url: /awards/
-          - title: Join Us
+          - title: News & Events
+            options:
+              - title: News
+                url: /news/
+              - title: Events
+                url: /events/
+              - title: Blog
+                url: /blog/
+          - title: Careers
             url: /about/join-us/
           - title: Contact Us
             url: /contact/
     - title: Membership
-      url: /membership/
-    - title: Engineering
-      options:
-          - title: Overview
-            url: /engineering/
-          - title: Core Engineering on Arm
-            options:
-                - title: Overview
-                  url: /engineering/core/
-                - title: Kernel Validation
-                  url: /engineering/core/kernel-validation-and-testing/
-                - title: Core Technologies & Tools
-                  url: /engineering/core/ctt/
-                - title: Toolchain
-                  url: /engineering/core/toolchain/
-                - title: Kernel
-                  url: /engineering/core/kernel/
-                - title: Arm Power Management
-                  url: /engineering/core/arm-power-management/
-                - title: Security
-                  url: /engineering/core/security/
-                - title: Devicetree Evolution
-                  url: /engineering/core/devicetree-evolution/
-          - title: Datacenter & Cloud
-            url: /engineering/datacenter-and-cloud/
-          - title: Edge & Fog Computing
-            url: /engineering/edge-and-fog-computing/
-          - title: Consumer
-            url: /engineering/consumer/
-          - title: IoT & Embedded
-            url: /engineering/iot-and-embedded/
-          - title: Autonomous Vehicles
-            url: /engineering/autonomous-vehicles/
-          - title: Artificial Intelligence
-            url: /engineering/artificial-intelligence/
-          - title: High Performance Computing
-            url: /engineering/high-performance-computing/
+      url: /products/
     - title: Services
       options:
           - title: Overview
@@ -89,23 +95,17 @@ pages:
             url: /services/testing-validation-services/
           - title: Hands on Training
             url: /services/hands-on-training/
-    - title: Support
-      url: /support/
-    - title: Downloads
+    - title: Developer Resources
       options:
           - title: Downloads
             url: /downloads/
+          - title: Developers
+            url: /developers/
           - title: Security Downloads
             url: /downloads/security/
-    - title: Latest
-      options:
-          - title: Resources
-            url: /resources/
-          - title: News
-            url: /news/
-          - title: Blog
-            url: /blog/
-          - title: Events
-            url: /events/
-          - title: Planet
+          - title: Connect Resources
+            url: https://connect.linaro.org/resources/
+          - title: Planet Linaro
             url: /planet/
+    - title: Support
+      url: /support/
