@@ -96,7 +96,8 @@ function watchFiles() {
             "./assets/css/**/*",
             "./_data/**/*",
             "./_sass/**/*",
-            "./_test_site/**/*"
+            "./_test_site/**/*",
+            "./_products/**/*"
         ],
         gulp.series(jekyll, package_script, app_script, browserSyncReload)
     );
