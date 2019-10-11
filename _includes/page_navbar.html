@@ -52,7 +52,7 @@
                                 </ul>
                             </li>
                         {% else %}
-                            <li class="{{class}}"><a href="{{item.url}}"><span>{{item.title}}</span></a></li>
+                            <li class="{{class}}"><a href="{{item.url}}"><span>{{item.title}}</span>{% if item.icon %}<i class="{{item.icon}}"></i>{% endif %}</a></li>
                         {% endif %}
                     {% endfor %}
                     {% if site.data.nav.search_enabled %}
