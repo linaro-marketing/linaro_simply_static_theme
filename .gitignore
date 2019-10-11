@@ -3,6 +3,9 @@
 .sass-cache
 _site
 Gemfile.lock
-node_modules
 package-lock.json
 .jekyll-cache
+!node_modules/*
+node_modules/*
+!node_modules/foundation-sites
+!node_modules/motion-ui
