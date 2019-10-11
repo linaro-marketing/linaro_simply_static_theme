@@ -1,9 +1,11 @@
 
-@import "theme/flow";
+@import "theme/header";
 @import "theme/navbar";
+@import "theme/products";
 @import "theme/footer";
 @import "theme/fontello";
-@import "theme/header";
+@import "theme/post";
+@import "theme/flow";
 
 @font-face {
   font-family: 'Lato';
@@ -24,6 +26,17 @@ html {
         transition: all 200ms ease;
         &:hover {
             transform: scale(1.2);
+        }
+    }
+}
+
+#breadcrumb {
+    &.breadcrumb_image {
+        h1 {
+            color:white;
+        }
+        li {
+            color:white;
         }
     }
 }

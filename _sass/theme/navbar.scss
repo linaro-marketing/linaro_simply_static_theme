@@ -1,6 +1,8 @@
 $universal_navbar_item_text_colour: $topbar-background;
 $universal_navbar_item_text_colour_hover: #000;
 $universal_navbar_item_colour_hover: $topbar-background;
+$hamburger_icon_color: #eee;
+$hamburger_icon_color_hover: #ccc;
 
 .top-bar-title {
   img {
@@ -39,8 +41,18 @@ $universal_navbar_item_colour_hover: $topbar-background;
          @include breakpoint(small only) {
              background-color:$topbar-background;
          }
-        button.menu-icon.float-right {
+        button.menu-icon {
             margin-top: 16px;
+            &:after {
+                background: $hamburger_icon_color;
+                box-shadow: 0 7px 0 $hamburger_icon_color, 0 14px 0 $hamburger_icon_color;
+            }
+            &:hover {
+                &:after {
+                    background: $hamburger_icon_color_hover;
+                    box-shadow: 0 7px 0 $hamburger_icon_color_hover, 0 14px 0 $hamburger_icon_color_hover;
+                }
+            }
         }
     }
     // Main
@@ -179,5 +191,6 @@ ul.vertical.medium-horizontal.menu.drilldown {
 $dropdown-menu-item-background-active: $primary-color;
 $dropdown-menu-item-color-active: white;
 $dropdownmenu-submenu-background: #fefefe;
-$dropdownmenu-arrow-color: white;
+$dropdownmenu-arrow-color: #eee;
 $dropdownmenu-padding: 20px;
+$topbar-menu-icon-color: #eee;
