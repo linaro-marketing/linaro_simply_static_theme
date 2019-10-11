@@ -1,11 +1,11 @@
 
 {% if include.headerObj.slides %}
-    {% include components/slider.html sliderObj=include.headerObj %}
+    {% include components/slider.html sliderObj=include.headerObj.slides %}
 {% elsif include.headerObj.title %}
     {% assign header = include.headerObj %}
-    <div class="grid-x grid-padding-x flex-container align-middle callout large {% if header.background_class %}{{header.background_class}}{% endif %}"
-    {% if header.background_image %}
-    style="background-image:url({{header.background_image}});"
+    <div class="grid-x grid-padding-x flex-container align-middle header callout large {% if header.class %}{{header.class}}{% endif %}"
+    {% if header.image %}
+    style="background-image:url({{header.image}});"
     {% endif %}>
         <div class="cell text-center">
             <h1>{{header.title}}</h1>

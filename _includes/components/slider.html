@@ -5,10 +5,11 @@
             <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
         </div>
         <ul class="orbit-container">
-            {% for slide in include.sliderObj.slides %}
+            {% for slide in include.sliderObj %}
             <li class="{% if forloop.first %}is-active{% endif %} orbit-slide" style="height:500px">
+                <a data-featherlight="{{slide.image}}">
                 <figure class="orbit-figure darken">
-                    <img class="orbit-image" src="{{slide.image}}" alt="Space">
+                    <img class="orbit-image" src="{{slide.image}}" alt="{% if slide.image_alt %}{{slide.image_alt}}{% else %}Slide {{forloop.index}}{% endif %}">
                     <figcaption class="orbit-caption">
                         {% if slide.title %}
                             <h3>{{slide.title}}</h3>
@@ -23,12 +24,13 @@
                         {% endif %}
                     </figcaption>
                 </figure>
+                </a>
             </li>
             {% endfor %}
         </ul>
     </div>
     <nav class="orbit-bullets">
-        {% for slide in include.sliderObj.slides %}
+        {% for slide in include.sliderObj %}
         <button {% if forloop.first %}class="is-active"{% endif %} data-slide="{{forloop.index | minus: 1}}">
             <span class="show-for-sr"> Slide {{ forloop.index }} details.</span>
             {% if forloop.first %}
