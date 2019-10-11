@@ -1,0 +1,160 @@
+---
+layout: base
+---
+<div class="grid-container fluid main_content_row {% if site.breadcrumb_image %}breadcrumb_image{% endif %}" {% if site.breadcrumb_image %}style="background-image:url({{site.breadcrumb_image}});"{% endif %} id="breadcrumb">
+    <article class="grid-container">
+        <div class="grid-x grid-margin-x">
+            <div class="cell medium-6">
+                <header>
+                    <h1>{{page.title}}</h1>
+                </header>
+                <nav aria-label="You are here:" role="navigation">
+                    <ol class="breadcrumbs">
+                        <li><a href="/products/">Products</a></li>
+                        <li>
+                            <span class="show-for-sr">Current: </span> Shoes
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </article>
+</div>
+<div class="grid-container fluid main_content_row" id="product_wrapper">
+    <article class="grid-container">
+        <div class="grid-x grid-margin-x">
+            <div class="cell medium-6">
+                <div class="owl-carousel slider-block owl-theme" data-size="{{page.product_images | size }}"
+                data-xs-number="1" data-sm-number="1"
+                data-md-number="1" data-lg-number="1" data-dots="true"
+                data-nav="false" data-seconds-per-slide="3">
+                    {% assign carousel_items = page.product_images %}
+                    {% for item in carousel_items %}
+                        <a data-featherlight="{{item.image}}">
+                            <div class="item">
+                                {% if page.product_image_location == "relative" %}
+                                    {% capture image_path %}{{page.path | append: item.image | remove_first: "/" }}{% endcapture %}
+                                    {% capture full_path %}{{page.path}}{{item.image}}{% endcapture %}
+                                {% else %}
+                                    {% capture image_path %}{{item.image | remove_first: "/assets/images/" }}{% endcapture %}
+                                    {% capture full_path %}{{item.image}}{% endcapture %}
+                                {% endif %}
+                                {% picture feature_block_image {{image_path}} %}
+                            </div>
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="cell medium-6">
+                <p>{{page.description}}</p>
+                {% if page.purchase_links %}
+                <label>Purchase Links
+                    <select id="buy_links_select">
+                        {% for link in page.purchase_links %}
+                            <option value="{{link.url}}">{{link.vendor}} - {{link.price_currency}}{{link.price}}</option>
+                        {% endfor %}
+                    </select>
+                </label>
+                <a href="#" id="buy_links_button" class="button large expanded">Buy Now</a>
+                {% else %}
+                    <div class="callout small warning">
+                        <h5>Currently Unavailable.</h5>
+                        <p>Sorry but this product is currently unvailable! {% if page.back_in_stock_date %}Check again on {{page.date |  date: "%A, %B %-d, %Y"}}{% endif %}</p>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </article>
+    <article class="grid-container">
+        <div class="grid-x grid-margin-x">
+            <div class="cell">
+                {{content}}
+            </div>
+            <div class="cell">
+                {% if page.product_table %}
+                <div class="table-scroll">
+                    <table>
+                        <thead>
+                            <tr>
+                            {% for header_item in page.product_table.headers %}
+                                <th>{{header_item}}</th>
+                            {% endfor %}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for row in page.product_table.items %}
+                            <tr>
+                                {% for column in row.data %}
+                                    <td>{{column}}</td>
+                                {% endfor %}
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </article>
+    <article class="grid-container">
+        <div class="grid-x grid-margin-x">
+            <div class="cell">
+                <ul class="tabs" data-tabs id="example-tabs">
+                    <li class="tabs-title is-active"><a href="#panel2">Related Products</a></li>
+                </ul>
+                <div class="tabs-content" data-tabs-content="example-tabs">
+                    <div class="tabs-panel is-active grid-container" id="panel2">
+                        <div class="grid-x grid-margin-x medium-up-3 large-up-5">
+                            <div class="cell">
+                                <img class="thumbnail" src="https://placehold.it/350x200">
+                                <h5>Other Product <small>$22</small></h5>
+                                <p>In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac
+                                    euismod semper, magna diam.</p>
+                                <a href="#" class="button hollow tiny expanded">Buy Now</a>
+                            </div>
+                            <div class="cell">
+                                <img class="thumbnail" src="https://placehold.it/350x200">
+                                <h5>Other Product <small>$22</small></h5>
+                                <p>In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac
+                                    euismod semper, magna diam.</p>
+                                <a href="#" class="button hollow tiny expanded">Buy Now</a>
+                            </div>
+                            <div class="cell">
+                                <img class="thumbnail" src="https://placehold.it/350x200">
+                                <h5>Other Product <small>$22</small></h5>
+                                <p>In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac
+                                    euismod semper, magna diam.</p>
+                                <a href="#" class="button hollow tiny expanded">Buy Now</a>
+                            </div>
+                            <div class="cell">
+                                <img class="thumbnail" src="https://placehold.it/350x200">
+                                <h5>Other Product <small>$22</small></h5>
+                                <p>In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac
+                                    euismod semper, magna diam.</p>
+                                <a href="#" class="button hollow tiny expanded">Buy Now</a>
+                            </div>
+                            <div class="cell">
+                                <img class="thumbnail" src="https://placehold.it/350x200">
+                                <h5>Other Product <small>$22</small></h5>
+                                <p>In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac
+                                    euismod semper, magna diam.</p>
+                                <a href="#" class="button hollow tiny expanded">Buy Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+</div>
+<script type="text/javascript">
+    var purchase_select = document.getElementById("buy_links_select");
+    var purchase_link_url = purchase_select.children[0].value;
+    var purchase_button = document.getElementById("buy_links_button");
+    purchase_button.href = purchase_link_url;
+    purchase_select.onchange = function () {
+        var index = this.selectedIndex;
+        purchase_link_url = this.children[index].value;
+        purchase_button.href = purchase_link_url;
+    }
+</script>
