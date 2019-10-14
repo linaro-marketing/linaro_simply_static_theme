@@ -6,11 +6,9 @@ description: >
     This is an example website blog section.
 header:
     title: Blog
-    text: >
-        This is an example website blog section.
     image: /assets/images/content/background-image1.jpg
     class: darken
-# path: "/blog/:num/"
+pagination_path: "/blog/:num/"
 pagination:
     enabled: true
     title: "Blog - Page :num"
