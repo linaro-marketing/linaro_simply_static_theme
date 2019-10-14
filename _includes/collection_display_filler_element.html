@@ -1,0 +1,24 @@
+<div class="cell small-12 medium-6 large-4 ">
+    <div class="card blog-post-item filler_element">
+        <a href="{{post.url}}">
+            <div class=" card-section">
+                <ul class="list-group">
+                    {% if page.pagination.category == "blog" %}
+                        {% assign post-items = site.categories["blog"] | sort: 'date' | reverse %}
+                    {% else %}
+                        {% assign post-items = site.categories["blog"] | sort: 'date' | reverse %}
+                    {% endif %}
+                    {% for each in post-items limit: 6 %}
+                        <a href="{{each.url}}">
+                            <li class="list-group-item">
+                                <h4>{{each.title}}</h4>
+                                <small class="date">{{each.date | date: "%A, %B %-d, %Y" }}</small>
+                            </li>
+                        </a>
+                    {% endfor %}
+                </ul>
+            </div>
+        </a>
+    </div>
+
+</div>
