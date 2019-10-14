@@ -4,7 +4,7 @@ description: > # this means to ignore newlines until "baseurl:"
   A lightweight foundation css framework Jekyll theme.
 tagline:  A lightweight foundation css framework Jekyll theme.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site
+url: "http://localhost:4000" # the base hostname & protocol for your site
 highlighter: rouge
 google_analytics: UA-XXXXXXXXXX-4
 # Default Post permalink
@@ -20,6 +20,7 @@ plugins:
   - jekyll-seo-tag
   - jekyll-include-cache
   - jekyll-paginate-v2
+  - japr
 collections:
   authors:
     output: true
@@ -110,3 +111,12 @@ autopages:
   enabled: false
 #Test config
 breadcrumb_image: /assets/images/content/breadcrumb.png
+# JAPR asset pipeline
+asset_pipeline:
+  bundle: true
+  compress: true
+  output_path: assets
+  gzip: false
+blog:
+  filler_element: collection_display_filler_element.html
+  avatar_placeholder: /assets/images/avatar-placeholder.jpg
