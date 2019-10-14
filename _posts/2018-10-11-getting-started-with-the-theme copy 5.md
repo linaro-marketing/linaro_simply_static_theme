@@ -1,5 +1,5 @@
 ---
-title: Random
+title: Test
 date: 2018-10-11 12:00:00
 description: >-
     This blog post will give you an overview of how to get started with the theme
