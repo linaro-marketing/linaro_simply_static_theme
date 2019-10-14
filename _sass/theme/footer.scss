@@ -1,9 +1,9 @@
 #footer_sections {
-    background-color: #000;
-    color:white;
+    background-color: $footer_bg_color;
+    color:$footer_text_color;
     padding: 40px 0;
     h3{
-        color:white;
+        color:$footer_text_color;
          @include breakpoint(small only) {
             text-align:center;
             font-weight:bold;
@@ -28,7 +28,7 @@
                 }
             }
             a{
-                color:white;
+                color:$footer_text_color;
             }
         }
     }
@@ -44,11 +44,11 @@
     }
 }
 #footer_copyright {
-    background-color:#1c1c1c;
-    color:white;
+    background-color:$footer_bg_color;
+    color:$footer_text_color;
     padding: 10px 0;
     a {
-        color:white;
+        color:$footer_text_color;
         &:hover {
             color: $primary-color;
         }

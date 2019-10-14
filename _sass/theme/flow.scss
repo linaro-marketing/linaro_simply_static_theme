@@ -5,6 +5,10 @@
             padding-top:$flow_row_padding;
             padding-bottom:$flow_row_padding;
         }
+        &.background_image_row.overlay {
+            background-position: center center;
+            background-size: cover;
+        }
     }
     // Blocks / Cards
     .block_row {
@@ -53,5 +57,8 @@
         .owl-carousel {
             z-index: 0;
         }
+    }
+    .owl-carousel {
+        z-index: 0;
     }
 }
