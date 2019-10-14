@@ -9,7 +9,10 @@
         <div class="title-bar" data-responsive-toggle="main_navbar" data-hide-for="medium">
             <div class="title-bar-right">
                 <button class="menu-icon  float-right" type="button" data-toggle></button>
-                <div class="title-bar-title  float-left"><img src="{{site.data.nav.brand.image_path}}" alt="{{site.title}} Brand logo" /></div>
+                <div class="title-bar-title  float-left">
+                    <a href="{{site.data.nav.brand.url}}">
+                        <img src="{{site.data.nav.brand.image_path}}" alt="{{site.title}} Brand logo" /></div>
+                    </a>
             </div>
         </div>
         <div class="top-bar" id="main_navbar">
@@ -41,7 +44,7 @@
                                                 <a href="#">{{sub_item.title}}</a>
                                                 <ul class="submenu menu vertical" data-submenu>
                                                     {% for sub_sub_item in sub_item.options %}
-                                                        <li><a href="#">{{sub_sub_item.title}}</a></li>
+                                                        <li><a href="{{sub_sub_item.url}}">{{sub_sub_item.title}}</a></li>
                                                     {% endfor %}
                                                 </ul>
                                             </li>
