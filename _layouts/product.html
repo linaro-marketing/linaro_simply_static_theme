@@ -1,17 +1,20 @@
 ---
 layout: base
 ---
+<div class="product_wrapper" itemscope itemtype="http://schema.org/Product">
+
 <div class="grid-container fluid main_content_row {% if site.breadcrumb_image %}breadcrumb_image{% endif %}" {% if site.breadcrumb_image %}style="background-image:url({{site.breadcrumb_image}});"{% endif %} id="breadcrumb">
     <article class="grid-container">
         <div class="grid-x grid-margin-x">
             <div class="cell medium-6">
                 <header>
-                    <h1>{{page.title}}</h1>
+                    <h1 itemprop="name">{{page.title}}</h1>
                 </header>
                 <nav aria-label="You are here:" role="navigation">
                     <ol class="breadcrumbs">
                         <li><a href="/products/">Products</a></li>
                         <li>
+                            <meta itemprop="url" content="{{page.url}}" />
                             <span class="show-for-sr">Current: </span> Shoes
                         </li>
                     </ol>
@@ -33,12 +36,13 @@ layout: base
                         <a data-featherlight="{{item.image}}">
                             <div class="item">
                                 {% if page.product_image_location == "relative" %}
-                                    {% capture image_path %}{{page.path | append: item.image | remove_first: "/" }}{% endcapture %}
-                                    {% capture full_path %}{{page.path}}{{item.image}}{% endcapture %}
+                                {% capture image_path %}{{page.path | append: item.image | remove_first: "/" }}{% endcapture %}
+                                {% capture full_path %}{{page.path}}{{item.image}}{% endcapture %}
                                 {% else %}
-                                    {% capture image_path %}{{item.image | remove_first: "/assets/images/" }}{% endcapture %}
-                                    {% capture full_path %}{{item.image}}{% endcapture %}
+                                {% capture image_path %}{{item.image | remove_first: "/assets/images/" }}{% endcapture %}
+                                {% capture full_path %}{{item.image}}{% endcapture %}
                                 {% endif %}
+                                {% if forloop.first %}<meta itemprop="image" content="{{site.url}}{{item.image}}" />{% endif %}
                                 {% picture feature_block_image {{image_path}} %}
                             </div>
                         </a>
@@ -46,18 +50,21 @@ layout: base
                 </div>
             </div>
             <div class="cell medium-6">
-                <p>{{page.description}}</p>
+                <p itemprop="description">{{page.description}}</p>
                 {% if page.purchase_links %}
                 <label>Purchase Links
-                    <select id="buy_links_select">
+                    <select id="buy_links_select" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
                         {% for link in page.purchase_links %}
+                            <meta itemprop="priceCurrency" content="{{link.price_currency}}" />
+                            <meta itemprop="price" content="{{link.price}}" />
                             <option value="{{link.url}}">{{link.vendor}} - {{link.price_currency}}{{link.price}}</option>
                         {% endfor %}
                     </select>
                 </label>
                 <a href="#" id="buy_links_button" class="button large expanded">Buy Now</a>
                 {% else %}
-                    <div class="callout small warning">
+                    <div class="callout small warning" itemscope itemtype="http://schema.org/Offer" >
+                        <link itemprop="availability" href="http://schema.org/OutOfStock" />
                         <h5>Currently Unavailable.</h5>
                         <p>Sorry but this product is currently unvailable! {% if page.back_in_stock_date %}Check again on {{page.date |  date: "%A, %B %-d, %Y"}}{% endif %}</p>
                     </div>
@@ -146,6 +153,7 @@ layout: base
             </div>
         </div>
     </article>
+</div>
 </div>
 <script type="text/javascript">
     var purchase_select = document.getElementById("buy_links_select");
