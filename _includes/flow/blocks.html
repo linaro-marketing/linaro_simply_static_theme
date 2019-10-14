@@ -8,7 +8,7 @@
                     {% if block.inner_image.icon %}
                     <i class="block_image_icon {{block.inner_image.icon_name}}"></i>
                     {% else %}
-                        {% assign image_path = block.inner_image.path | remove_first: '/' %}
+                        {% assign image_path = block.inner_image.path | remove_first: '/assets/images/' %}
                         {% picture card {{image_path}} alt=block.inner_image.alt %}
                     {% endif %}
                 {% endif %}
