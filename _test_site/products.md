@@ -1,14 +1,22 @@
 ---
 permalink: /products/
 title: Products
-layout: page
+layout: index_page
 description: >
-    This is an example website blog section.
+    This is an example website products section.
 header:
     title: Products
-    text: >
-        This is an example website blog section.
-    image: /assets/images/content/background-image1.jpg
+    image: /assets/images/content/shoes0.jpg
     class: darken
-product_category: all
+pagination_path: "/products/:num/"
+index_items:
+    button_text: View
+    disable_authors: true
+pagination:
+    enabled: true
+    title: "Products - Page :num"
+    trail:
+        before: 4
+        after: 4
+    collection: products
 ---
