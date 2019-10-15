@@ -17,10 +17,9 @@ plugins:
   - jekyll-4-picture-tag
   - jekyll-feed
   - jekyll-include-cache
-  - jekyll-seo-tag
-  - jekyll-include-cache
   - jekyll-paginate-v2
   - japr
+  - jekyll_amp
 collections:
   authors:
     output: true
@@ -77,8 +76,10 @@ defaults:
     values:
       layout: "product"
       is_post: true
-      image:
-        path: /assets/images/placeholder.jpg
+      github_edit:
+        enabled: true
+        repo: https://github.com/96boards/documentation
+        strip_from_path: _products/
 # Include the site content
 include: ["_test_site", "_pages"]
 # Social Media Links
@@ -120,3 +121,8 @@ asset_pipeline:
 blog:
   filler_element: collection_display_filler_element.html
   avatar_placeholder: /assets/images/avatar-placeholder.jpg
+github_edit:
+  enabled: true
+  repo: "https://github.com/96boards/website"
+  # strip_from_path: _documentation
+ampdir: /amp
