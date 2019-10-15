@@ -10,6 +10,7 @@ sub_categories:
     - trainers
 keywords: shoes, nike, trainers
 # product_image_location: relative
+image: /assets/images/content/shoes0.jpg
 # Product Images used in the carousel
 product_images:
     - title: Shoes 1
