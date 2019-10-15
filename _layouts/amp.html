@@ -1,15 +1,24 @@
 ---
 layout: amp
 ---
-<!doctype html>
-<html amp lang="en">
 
-<head>
-    <meta charset="utf-8">
+<!DOCTYPE html>
+<html amp lang="en">
+  <head>
+    <meta charset="utf-8" />
     <title>{{ page.title }}</title>
-    <link rel="canonical" href="{{ page.canonical_url | prepend: site.baseurl | prepend: site.url }}" />
-    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <meta
+      name="viewport"
+      content="width=device-width,minimum-scale=1,initial-scale=1"
+    />
+    <link
+      rel="canonical"
+      href="{{
+        page.canonical_url | prepend: site.baseurl | prepend: site.url
+      }}"
+    />
     <style amp-custom>
+      {% include critical_css/amp.css %}
     </style>
     <style amp-boilerplate>
         body {
@@ -68,30 +77,58 @@ layout: amp
                 visibility: visible
             }
         }
-    </style><noscript>
-        <style amp-boilerplate>
-            body {
-                -webkit-animation: none;
-                -moz-animation: none;
-                -ms-animation: none;
-                animation: none
-            }
-        </style>
+    </style>
+    <noscript>
+      <style amp-boilerplate>
+        body {
+          -webkit-animation: none;
+          -moz-animation: none;
+          -ms-animation: none;
+          animation: none;
+        }
+      </style>
     </noscript>
     <script async src="https://cdn.ampproject.org/v0.js"></script>
-</head>
+    <script
+      async
+      custom-element="amp-sidebar"
+      src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"
+    ></script>
+    <script
+      async
+      custom-element="amp-analytics"
+      src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"
+    ></script>
+  </head>
 
-<body>
-    {% capture header %}{% include amp_header.html %}{% endcapture %}
-    <h1 class="post-title">
-        {{ header | amp_images }}
-    </h1>
-    <span>
-        {{ page.date }} - {{ page.author }}
-    </span>
-    {{ content | markdownify | amp_images }}
+  <body>
+    {% include amp_header.html %}
+    <span> {{ page.date }} - {{ page.author }} </span>
+    <article>
+      <h1 class="post-title">
+        {{ page.title }}
+      </h1>
+      {{ content | markdownify | amp_images }}
+    </article>
     {% capture footer %}{% include amp_footer.html %}{% endcapture %}
     {{ footer | amp_images: false, 24, 24 }}
-</body>
-
+    <amp-analytics type="googleanalytics">
+      <script type="application/json">
+        {
+            "vars": {
+                "account": "{{site.google_analytics}}"
+            },
+            "triggers": {
+                "default pageview": {
+                "on": "visible",
+                "request": "pageview",
+                "vars": {
+                    "title": "{{page.title}}"
+                }
+                }
+            }
+        }
+      </script>
+    </amp-analytics>
+  </body>
 </html>
