@@ -49,6 +49,7 @@
                                                 {{ post.content | strip_html | truncatewords:30 }}
                                             {% endif %}
                                         </p>
+                                        {% unless page.index_items.disable_authors %}
                                         <div class="grid-x grid-padding-y author-section align-middle">
                                             {% assign author = site.authors | where: "username", post.author | first %}
                                             {% assign author-url = author.url %}
@@ -63,8 +64,13 @@
                                                 </small>
                                             </div>
                                         </div>
+                                        {% endunless %}
                                         <a href="{{post.url}}" class="button large">
-                                            Read Post
+                                            {% if page.index_items.button_text %}
+                                                {{page.index_items.button_text}}
+                                            {% else %}
+                                                Read Post
+                                            {% endif %}
                                         </a>
                                     </div>
                                 </a>
