@@ -31,7 +31,7 @@
     {% if page.path contains '_posts' %}
     <!--AMP Support-->
     <link rel="amphtml"
-        href="{{ page.id | prepend: '/YOURDIR' | prepend: site.baseurl | prepend: site.url | append: '.html' }}">
+        href="{{ page.id | prepend: site.ampdir | prepend: site.baseurl | prepend: site.url | append: '.html' }}">
     {% endif %}
 
     <!--Other Page Meta-->
