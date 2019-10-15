@@ -1,8 +1,9 @@
 $universal_navbar_item_text_colour: $topbar-background;
 $universal_navbar_item_text_colour_hover: #000;
 $universal_navbar_item_colour_hover: $topbar-background;
-$hamburger_icon_color: #eee;
+$hamburger_icon_color: $primary-color;
 $hamburger_icon_color_hover: #ccc;
+$universal_navbar_icon_color: #fff;
 
 .top-bar-title {
   img {
@@ -104,6 +105,9 @@ $hamburger_icon_color_hover: #ccc;
          @include breakpoint(small only) {
              background-color:$primary-color;
          }
+    }
+    i.icon-down-big {
+        color: $universal_navbar_icon_color;
     }
     #universal_navbar {
         background-color: $primary-color;
