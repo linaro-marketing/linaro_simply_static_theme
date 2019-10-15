@@ -1,0 +1,31 @@
+{% unless page.github_edit.enabled == "false" or layout.github_editable == "false" %}
+    {% assign page_base = include.pagePermalink | split:"/" %}
+    {% assign page_path = include.pagePath | replace: " ", "" %}
+    {% if page.github_edit.repo %}
+            {% if page.github_edit.strip_from_path %}
+                {% assign page_path = page_path | replace: page.github_edit.strip_from_path , "" %}
+            {% endif %}
+        {% capture github_home %}{{page.github_edit.repo}}{% endcapture %}
+        {% capture github_files %}{{page.github_edit.repo}}}/tree/master/{% endcapture %}
+    {% else %}
+        {% capture github_home %}{{site.github_edit.repo}}{% endcapture %}
+        {% capture github_files %}{{site.github_edit.repo}}/tree/master/{% endcapture %}
+    {% endif %}
+    {% capture edit_page_link %}{{github_files}}{{page_path}}{% endcapture %}
+    {% capture report-issue-link %}
+        {{github_home}}/issues/new?title=Problem+with+{{page_path}}&body=Please+enter+some+details+about+the+bug/issue+so+we+can+promptly+resolve+it.+%0D%0AURL%3A++{{site.url}}{{page.url}}
+    {% endcapture %}
+    <div class="cell small-12">
+        <a target="_blank" href="{{report-issue-link}}" id="submit_issue">
+            Report an Issue
+        </a>
+        <span class="coloured-bp">/</span>
+        <a target="_blank" href="{{github_home}}" id="github_home">
+            <i class="icon-github-circled center-block"></i>
+        </a>
+        <span class="coloured-bp">/</span>
+        <a  target="_blank" href="{{edit_page_link | replace: " ", "" }}" id="edit_on_github">
+            Edit on Github
+        </a>
+    </div>
+{% endunless %}
