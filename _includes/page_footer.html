@@ -1,4 +1,3 @@
-{% include_cached page_github_edit.html pagePath=page.path pagePermalink=page.permalink %}
 <div class="grid-container fluid" id="footer_sections">
     <div class="grid-container">
         <div class="grid-x grid-margin-x align-stretch">
@@ -39,6 +38,9 @@
 <div class="grid-container fluid" id="footer_copyright">
     <div class="grid-container">
         <div class="grid-x grid-margin-x">
+            {% if site.github_edit.enabled %}
+                {% include page_github_edit.html pagePath=page.path pagePermalink=page.permalink %}
+            {% endif %}
             <div class="cell small-12">
                 {{site.data.footer.copyright_section.text}}
                 {% if site.data.footer.copyright_section.links %}
