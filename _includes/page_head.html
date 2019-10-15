@@ -27,6 +27,13 @@
     {% if site.twitter_username %}
         <meta name="twitter:site" content="@{{site.twitter_username}}">
     {% endif %}
+
+    {% if page.path contains '_posts' %}
+    <!--AMP Support-->
+    <link rel="amphtml"
+        href="{{ page.id | prepend: '/YOURDIR' | prepend: site.baseurl | prepend: site.url | append: '.html' }}">
+    {% endif %}
+
     <!--Other Page Meta-->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -41,4 +48,10 @@
     <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ "/feed.xml" | prepend: site.baseurl }}">
     <!--Stylesheets-->
     {% include page_css.html %}
+    <!--Application Schema.org Snippets-->
+    {% if page.schema %}
+    <script type="application/ld+json">
+        {{page.schema | jsonify }}
+    </script>
+    {% endif %}
 </head>
