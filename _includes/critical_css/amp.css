@@ -171,9 +171,12 @@ body {
     z-index: 999;
     top: 0;
     width: 100%;
+    display: -webkit-flex;
     display: flex;
     flex-direction: row;
+    -webkit-flex-direction: row;
     flex-wrap: nowrap;
+    -webkit-flex-wrap: wrap;
     justify-content: flex-start;
     align-items: flex-start;
 }
@@ -280,12 +283,14 @@ body {
     }
 
     amp-sidebar .controls {
+      display: -webkit-flex;
       display: flex;
       height: 50px;
       background: #f0f0f0;
     }
 
     amp-sidebar .controls a {
+      display: -webkit-flex;
       display: flex;
       justify-content: center;
       align-items: center;
