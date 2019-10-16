@@ -93,4 +93,11 @@ markup_presets:
   # Images for blog posts
   blog_image:
     markup: img
+    formats: [webp, original]
     widths: [400,800,1200]
+  blog_header_image:
+    markup: img
+    attributes:
+      img: 'class="header_background_image"'
+    formats: [webp, original]
+    widths: [400,800,1200,1920]
