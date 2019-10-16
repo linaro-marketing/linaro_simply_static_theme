@@ -1,4 +1,4 @@
-<div class="orbit" role="region" aria-label="Page Slider" data-orbit id="header_carousel">
+<div class="orbit {% if include.header %}header_carousel{% endif %}" role="region" aria-label="Page Slider" data-orbit id="header_carousel">
     <div class="orbit-wrapper">
         <div class="orbit-controls">
             <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
@@ -7,9 +7,21 @@
         <ul class="orbit-container">
             {% for slide in include.sliderObj %}
             <li class="{% if forloop.first %}is-active{% endif %} orbit-slide" style="height:500px">
+                {% unless include.header %}
                 <a data-featherlight="{{slide.image}}">
+                {% endunless %}
                 <figure class="orbit-figure darken">
-                    <img class="orbit-image" src="{{slide.image}}" alt="{% if slide.image_alt %}{{slide.image_alt}}{% else %}Slide {{forloop.index}}{% endif %}">
+                    {% if slide.image_alt %}
+                        {% assign alt_tag = slide.image_alt %}
+                    {% else %}
+                        {% capture alt_tag %}Slide {{forloop.index}}{% endcapture %}
+                    {% endif %}
+                    {% assign image_path = slide.image | remove_first: "/assets/images/"%}
+                    {% if include.header %}
+                        {% picture orbit_slider_header_image {{image_path}} --alt {{alt_tag}} %}
+                    {% else %}
+                        {% picture orbit_slider_image {{image_path}} --alt {{alt_tag}} %}
+                    {% endif %}
                     <figcaption class="orbit-caption">
                         {% if slide.title %}
                             <h3>{{slide.title}}</h3>
@@ -24,7 +36,9 @@
                         {% endif %}
                     </figcaption>
                 </figure>
+                {% unless include.header %}
                 </a>
+                {% endunless %}
             </li>
             {% endfor %}
         </ul>
