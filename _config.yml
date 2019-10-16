@@ -19,7 +19,7 @@ plugins:
   - jekyll-include-cache
   - jekyll-paginate-v2
   - japr
-  - jekyll_amp
+  # - jekyll_amp
 collections:
   authors:
     output: true
@@ -125,4 +125,6 @@ github_edit:
   enabled: true
   repo: "https://github.com/96boards/website"
   # strip_from_path: _documentation
+# jekyll_amp config
 ampdir: /amp
+amp: false
