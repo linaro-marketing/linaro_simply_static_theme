@@ -101,3 +101,15 @@ markup_presets:
       img: 'class="header_background_image"'
     formats: [webp, original]
     widths: [400,800,1200,1920]
+  orbit_slider_header_image:
+    markup: img
+    attributes:
+      img: 'class="orbit-image header_background_image"'
+    formats: [webp, original]
+    widths: [400,800,1200,1920]
+  orbit_slider_image:
+    markup: img
+    attributes:
+      img: 'class="orbit-image orbit_slider_image"'
+    formats: [webp, original]
+    widths: [400,800,1200]
