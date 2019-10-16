@@ -1,12 +1,117 @@
-<header class="headerbar">
-    <div role="button" on="tap:sidebar1.toggle" tabindex="0" class="hamburger">☰</div>
-    <div class="site-name">{{site.title}}</div>
-</header>
-<amp-sidebar id="sidebar1" layout="nodisplay" side="left">
+<!-- <header class="headerbar">
+    <div class="rw">
+        <div class="rr">
+            <div class="rcx9">
+                <amp-img class="header_brand_image" alt="A view of the sea" src="{{site.data.nav.brand.image_path}}" width="310" height="200" layout="responsive">
+                </amp-img>
+            </div>
+            <div class="rcx3">
+                <div role="button" on="tap:sidebar1.toggle" tabindex="0" class="hamburger">☰</div>
+            </div>
+        </div>
+    </div>
+</header> -->
+<!-- <amp-sidebar id="sidebar1" layout="nodisplay" side="left">
     <div role="button" aria-label="close sidebar" on="tap:sidebar1.toggle" tabindex="0" class="close-sidebar">✕</div>
     <ul class="sidebar">
         <li><a href="#">Example 1</a></li>
         <li><a href="#">Example 2</a></li>
         <li><a href="#">Example 3</a></li>
     </ul>
-</amp-sidebar>
+</amp-sidebar> -->
+<header class="headerbar">
+    <div class="hamburger" role="button" aria-label="mobile menu" on="tap:sidebar1.toggle" tabindex="0">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path d="M24 6h-24v-4h24v4zm0 4h-24v4h24v-4zm0 8h-24v4h24v-4z" /></svg>
+    </div>
+    <div class="site-name">
+        <a href="{{site.url}}">
+            <amp-img class="header_brand_image" alt="A view of the sea" src="{{site.data.nav.brand.image_path}}" width="310"
+                height="200" layout="responsive">
+            </amp-img>
+        </a>
+    </div>
+</header>
+  <amp-sidebar id='sidebar1' side='left' layout='nodisplay'>
+    <nav>
+      <div class="controls" [class]="hidePrimary ? 'controls hide-parent' : 'controls'" aria-label="Menu controls">
+        <a tabindex="0" role="button" aria-label="">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z"/></svg>                </a>
+        <span class="truncate">Menu</span>
+        <a tabindex="0" role="button" on='tap:sidebar1.toggle' aria-label="Close Menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"/></svg>                </a>
+      </div>
+
+      <div class="main-menu items" role="menu" aria-label="Menu links" [class]="hidePrimary ? 'main-menu items hide-parent' : 'main-menu items'">
+        {% for item in site.data.nav.pages %}
+
+            {% assign class = nil %}
+            {% if current_page_url contains link.url %}
+                {% assign class = 'active' %}
+            {% endif %}
+
+            {% if item.options %}
+                <a class="link-container submenu-icon truncate" role="menuitem" tabindex="0" aria-label="{{item.title}}" aria-haspopup="true"
+                    on="tap:AMP.setState({level_1_{{forloop.index}}: !level_1_{{forloop.index}}, hidePrimary: !hidePrimary})" title="{{item.title}}">
+                    {{item.title}}
+                </a>
+                <div class="submenu hide-submenu"
+                    [class]="(level_1_{{forloop.index}} ? 'submenu show-submenu' : 'submenu hide-submenu') + ' ' + (hideSecondary ? 'hide-parent' : '')"
+                    role="menu" aria-label="{{item.title}}">
+                    <div class="controls" [class]="hideSecondary ? 'controls hide-parent' : 'controls'" aria-label="{{item.title}} controls">
+                        <a tabindex="0" role="button" on="tap:AMP.setState({level_1_{{forloop.index}}: !level_1_{{forloop.index}}, hidePrimary: !hidePrimary})"
+                            aria-label="Return to Menu">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z" /></svg> </a>
+                        <span class="truncate">{{item.title}}</span>
+                        <a tabindex="0" role="button" on='tap:sidebar1.toggle' aria-label="Close {{item.title}}}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <path
+                                    d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z" />
+                                </svg> </a>
+                    </div>
+                    {% for sub_item in item.options %}
+                        {% if sub_item.options %}
+
+                            <a class="link-container submenu-icon truncate" role="menuitem" tabindex="0" aria-label="Clothing" aria-haspopup="true"
+                                on="tap:AMP.setState({level_2_{{forloop.index}}: !level_2_{{forloop.index}}, hideSecondary: !hideSecondary})" title="Clothing">
+                                {{sub_item.title}} </a>
+
+                            <div class="submenu hide-submenu"
+                                [class]="(level_2_{{forloop.index}} ? 'submenu show-submenu' : 'submenu hide-submenu') + ' ' + (hideTertiary ? 'hide-parent' : '')"
+                                role="menu" aria-label="{{sub_item.title}}">
+                                <div class="controls" [class]="hideTertiary ? 'controls hide-parent' : 'controls'" aria-label="{{sub_item.title}} controls">
+                                    <a tabindex="0" role="button" on="tap:AMP.setState({level_2_{{forloop.index}}: !level_2_{{forloop.index}}, hideSecondary: !hideSecondary})"
+                                        aria-label="Return to upper menu">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                            <path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z" />
+                                        </svg>
+                                    </a>
+                                    <span class="truncate">{{sub_item.title}}</span>
+                                    <a tabindex="0" role="button" on='tap:header-sidebar.toggle' aria-label="Close {{sub_item.title}}">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                            <path
+                                                d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z" />
+                                        </svg>
+                                    </a>
+                                </div>
+                                {% for sub_sub_item in sub_item.options %}
+                                    <a class="link-container truncate" tabindex="0" href="{{sub_sub_item.url}}"
+                                    title="Link">{{sub_sub_item.title}}
+                                 </a>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            <a class="link-container truncate" tabindex="0" href="{{sub_item.url}}" title="Link">{{sub_item.title}} </a>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            {% else %}
+                <a class="link-container truncate" tabindex="0" href="{{item.url}}" title="{{item.title}}">
+                    <span>{{item.title}}</span>{% if item.icon %}<i class="{{item.icon}}"></i>{% endif %}
+                </a>
+            {% endif %}
+        {% endfor %}
+      </div>
+    </nav>
+  </amp-sidebar>
