@@ -90,3 +90,7 @@ markup_presets:
     markup: direct_url
     fallback_format: webp # Default original
     fallback_width: 600 # Default 800
+  # Images for blog posts
+  blog_image:
+    markup: img
+    widths: [400,800,1200]
