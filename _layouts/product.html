@@ -112,41 +112,22 @@ layout: base
                 <div class="tabs-content" data-tabs-content="example-tabs">
                     <div class="tabs-panel is-active grid-container" id="panel2">
                         <div class="grid-x grid-margin-x medium-up-3 large-up-5">
-                            <div class="cell">
-                                <img class="thumbnail" src="https://placehold.it/350x200">
-                                <h5>Other Product <small>$22</small></h5>
-                                <p>In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac
-                                    euismod semper, magna diam.</p>
-                                <a href="#" class="button hollow tiny expanded">Buy Now</a>
-                            </div>
-                            <div class="cell">
-                                <img class="thumbnail" src="https://placehold.it/350x200">
-                                <h5>Other Product <small>$22</small></h5>
-                                <p>In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac
-                                    euismod semper, magna diam.</p>
-                                <a href="#" class="button hollow tiny expanded">Buy Now</a>
-                            </div>
-                            <div class="cell">
-                                <img class="thumbnail" src="https://placehold.it/350x200">
-                                <h5>Other Product <small>$22</small></h5>
-                                <p>In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac
-                                    euismod semper, magna diam.</p>
-                                <a href="#" class="button hollow tiny expanded">Buy Now</a>
-                            </div>
-                            <div class="cell">
-                                <img class="thumbnail" src="https://placehold.it/350x200">
-                                <h5>Other Product <small>$22</small></h5>
-                                <p>In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac
-                                    euismod semper, magna diam.</p>
-                                <a href="#" class="button hollow tiny expanded">Buy Now</a>
-                            </div>
-                            <div class="cell">
-                                <img class="thumbnail" src="https://placehold.it/350x200">
-                                <h5>Other Product <small>$22</small></h5>
-                                <p>In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac
-                                    euismod semper, magna diam.</p>
-                                <a href="#" class="button hollow tiny expanded">Buy Now</a>
-                            </div>
+                            {% assign related_products_count = site.data.products[page.category] | size %}
+                            {% if related_products_count < 5 %}
+                                {% assign related_products = site.data.products %}
+                            {% else %}
+                                {% assign related_products = site.data.products[page.category] %}
+                            {% endif %}
+                            {% for related_product in related_products limit: 5 %}
+                                <div class="cell">
+                                    {% picture card {{related_product.image | remove_first: "/assets/images/"}} %}
+                                    <h5>{{related_product.title}}</h5>
+                                    <p>{{related_product.image}}</p>
+                                    <a href="{{related_product.url}}" class="button hollow tiny expanded">
+                                        View
+                                    </a>
+                                </div>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
