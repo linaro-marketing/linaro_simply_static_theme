@@ -81,3 +81,8 @@ body::-webkit-scrollbar-track {
 body::-webkit-scrollbar-thumb {
   background-color: $primary-color;
 }
+.orbit.header_carousel{
+    .darken:before {
+        z-index: 0;
+    }
+}
