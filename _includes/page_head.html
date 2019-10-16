@@ -28,7 +28,7 @@
         <meta name="twitter:site" content="@{{site.twitter_username}}">
     {% endif %}
 
-    {% if page.path contains '_posts' %}
+    {% if site.amp and page.path contains '_posts' %}
     <!--AMP Support-->
     <link rel="amphtml"
         href="{{ page.id | prepend: site.ampdir | prepend: site.baseurl | prepend: site.url | append: '.html' }}">
