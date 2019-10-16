@@ -1,6 +1,12 @@
 {% if paginator.page == 1 %}
     {% include components/header.html headerObj=page.header %}
 {% endif %}
+{% if page.not_blog %}
+    {% assign button_text = "View" %}
+{% else %}
+    {% assign button_text = "Read Post" %}
+{% endif %}
+
 {% if paginator.total_posts > 0 %}
     <div class="grid-container blog-section">
         <div class="grid-x grid-margin-x medium-unstack equal-height-cards">
@@ -49,7 +55,7 @@
                                                 {{ post.content | strip_html | truncatewords:30 }}
                                             {% endif %}
                                         </p>
-                                        {% unless page.index_items.disable_authors %}
+                                        {% unless page.not_blog %}
                                         <div class="grid-x grid-padding-y author-section align-middle">
                                             {% assign author = site.authors | where: "username", post.author | first %}
                                             {% assign author-url = author.url %}
@@ -66,11 +72,7 @@
                                         </div>
                                         {% endunless %}
                                         <a href="{{post.url}}" class="button large">
-                                            {% if page.index_items.button_text %}
-                                                {{page.index_items.button_text}}
-                                            {% else %}
-                                                Read Post
-                                            {% endif %}
+                                            {{button_text}}
                                         </a>
                                     </div>
                                 </a>
@@ -103,28 +105,32 @@
                         {% endif %}
                         {% picture blog {{image_path}} alt=post.title %}
                         <div class="read-article">
-                            <i class="fa fa-eye"></i> Read Article
+                            <i class="fa fa-eye"></i>{{button_text}}
                         </div>
                         <div class="card-section post_card__content">
                             <div class="post-cat">{{post.categories | first | capitalize }}</div>
                                 {% include components/read_time.html content=post.content %}
                                 <h3>{{ post.title}}</h3>
-                                <small>{{ post.date | date: "%A, %B %-d, %Y"}}</small>
+                                {% unless page.not_blog %}
+                                    <small>{{ post.date | date: "%A, %B %-d, %Y"}}</small>
+                                {% endunless %}
                             <br />
                             <p class="post_excerpt">
                             {{ post.content | strip_html | truncatewords:30 }}
                             </p>
                             <div class="grid-x author-section align-middle">
-                                {% assign author = site.authors | where: "username", post.author | first %}
-                                {% assign author-url = author.url %}
-                                <div class="cell small-2 author_image_container">
-                                    <div class="blog-author-image lazyload" data-bg="{% if author.image_path %}{{author.image_path}}{% else %}{{site.blog.avatar_placeholder}}{% endif %}"></div>
-                                </div>
-                                <div class="cell small-10 author_name_container text-left">
-                                    <small class="blog-author">
-                                        <em>{% if author.name %}{{author.name}}{% else %}{{post.author}}{% endif %}</em>
-                                    </small>
-                                </div>
+                                {% unless page.not_blog %}
+                                    {% assign author = site.authors | where: "username", post.author | first %}
+                                    {% assign author-url = author.url %}
+                                    <div class="cell small-2 author_image_container">
+                                        <div class="blog-author-image lazyload" data-bg="{% if author.image_path %}{{author.image_path}}{% else %}{{site.blog.avatar_placeholder}}{% endif %}"></div>
+                                    </div>
+                                    <div class="cell small-10 author_name_container text-left">
+                                        <small class="blog-author">
+                                            <em>{% if author.name %}{{author.name}}{% else %}{{post.author}}{% endif %}</em>
+                                        </small>
+                                    </div>
+                                {% endunless %}
                             </div>
                         </div>
                     </a>
