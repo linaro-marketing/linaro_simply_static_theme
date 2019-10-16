@@ -9,9 +9,7 @@ header:
     image: /assets/images/content/shoes0.jpg
     class: darken
 pagination_path: "/products/:num/"
-index_items:
-    button_text: View
-    disable_authors: true
+not_blog: true
 pagination:
     enabled: true
     title: "Products - Page :num"

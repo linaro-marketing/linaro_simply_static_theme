@@ -6,8 +6,15 @@ descrtion: >
     This page showcases the power of the flow.html Jekyll include provided in this theme.
 keywords: flow, jekyll, automation, simple, bootstrap 3
 header:
-    title: Get your flow on!
-    background_image: /assets/images/content/background-image1.jpg
+    slides:
+        - title: Test
+          image: /assets/images/content/background-image1.jpg
+        - title: Test
+          image: /assets/images/content/background-image1.jpg
+        - title: Test
+          image: /assets/images/content/background-image1.jpg
+        - title: Test
+          image: /assets/images/content/background-image1.jpg
 flow:
     - row: container_row
     #   style: dark
