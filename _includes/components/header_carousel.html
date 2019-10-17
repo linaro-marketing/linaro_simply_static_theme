@@ -1,0 +1,27 @@
+<div class="owl-carousel header_carousel owl-theme">
+    {% for item in include.sliderObj %}
+            <div class="item darken">
+                {% capture image_path %}{{item.image | remove_first: "/assets/images/" }}{% endcapture %}
+                {% picture header_carousel_image {{image_path}} %}
+                <div
+                    class="grid-x grid-padding-x flex-container align-middle header callout large">
+                    <div class="cell text-center">
+                        <h1>{{item.title}}</h1>
+                        {% if item.text %}
+                            <p class="lead">{{item.text}}</p>
+                        {% endif %}
+                        {% if item.buttons %}
+                        <div classs="header_buttons">
+                            {% for button in item.buttons %}
+                            <a href="{{button.url}}" class="button {% if button.class %}{{button.class}}{% endif %}">
+                                {{button.title}}
+                                {% if button.icon %}<i class="{{button.icon}}"></i>{% endif %}
+                            </a>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+    {% endfor %}
+</div>
