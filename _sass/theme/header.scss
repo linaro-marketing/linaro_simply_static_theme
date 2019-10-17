@@ -14,6 +14,35 @@
     }
 }
 #root {
+    .owl-carousel.header_carousel {
+        height: $header_height;
+        overflow-y:hidden;
+        .owl-item{
+            height: $header_height;
+            img{
+                height: $header_height;
+                object-fit: cover;
+            }
+        }
+        .owl-dots {
+            z-index: 8;
+            margin-top: -40px;
+            position:relative;
+            margin-right:auto;
+            margin-left:auto;
+        }
+        .grid-x.grid-padding-x {
+            z-index: 999999;
+            position: absolute;
+            top:0px;
+            left:0px;
+            width:100vw;
+            background-color:transparent;
+            color:white;
+        }
+    }
+}
+#root {
     .header.callout {
         max-height: $header_height;
         height: $header_height;
@@ -25,6 +54,7 @@
         background-size: cover;
         background-position: center center;
         z-index:0;
+        overflow:hidden;
         .cell {
             position:relative;
             z-index: 1;
@@ -42,6 +72,19 @@
             height: 500px;
             left: 0;
             object-fit: cover;
+        }
+        video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translateX(-50%) translateY(-50%);
+            transform: translateX(-50%) translateY(-50%);
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1000;
+            overflow: hidden;
         }
     }
 }
