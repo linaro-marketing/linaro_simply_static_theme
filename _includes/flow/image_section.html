@@ -1,0 +1,4 @@
+<div class="cell image_section {% if include.object.class %}{{include.object.class}}{% endif %}">
+    {% assign image_path = include.object.image.path | remove_first: "/assets/images/" %}
+    {% picture card {{image_path}} %}
+</div>

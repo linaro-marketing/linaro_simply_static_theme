@@ -1,12 +1,12 @@
 <div class="cell">
-    <div class="grid-x grid-padding-x align-middle small-12 medium-up-{{include.object.block_section_content.item_width}}">
+    <div class="grid-x grid-padding-x {% if include.object.class %}{{include.object.class}}{% endif %}align-middle small-12 medium-up-{{include.object.block_section_content.item_width}}">
         {% for block in include.object.block_section_content.blocks %}
         <div class="cell">
             {% if block.url %}<a href="{{block.url}}">{% endif %}
-            <div class="card">
+            <div class="card {% if block.class %}{{block.class}}{% endif %}">
                 {% if block.inner_image %}
                     {% if block.inner_image.icon %}
-                    <i class="block_image_icon {{block.inner_image.icon_name}}"></i>
+                        <i class="block_image_icon {{block.inner_image.icon_name}}"></i>
                     {% else %}
                         {% assign image_path = block.inner_image.path | remove_first: '/assets/images/' %}
                         {% picture card {{image_path}} alt=block.inner_image.alt %}

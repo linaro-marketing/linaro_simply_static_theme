@@ -2,8 +2,13 @@
 {% if include.object.background_image %}background_image_row overlay{% endif %}"
 {% if include.object.background_image %}style="background-image: url({{include.object.background_image}})"
     {% endif %}>
+    {% if include.object.background_svg %}
+        <div class="background_svg">
+            {% include {{include.object.background_svg}} %}
+        </div>
+    {% endif %}
     <div class="grid-container">
-        <div class="grid-x grid-margin-x">
+        <div class="grid-x grid-margin-x grid-margin-y">
             {% include flow/flow_sections.html sections=include.object.sections %}
         </div>
     </div>

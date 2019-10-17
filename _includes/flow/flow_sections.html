@@ -1,12 +1,14 @@
 {% for section in include.sections %}
     {% if section.format == "title" %}
-        {% include flow/title.html object=section.title_content %}
+        {% include flow/title.html object=section %}
+    {% elsif section.format == "image" %}
+        {% include flow/image_section.html object=section %}
     {% elsif section.format == "members" %}
         {% include flow/members_section.html object=section %}
     {% elsif section.format == "block" %}
         {% include flow/blocks.html object=section %}
     {% elsif section.format == "buttons" %}
-        {% include flow/buttons.html object=section.buttons_content style=section.style %}
+        {% include flow/buttons.html object=section.buttons_content style=section.class %}
     {% elsif section.format == "text" %}
         {% include flow/text.html object=section %}
     {% elsif section.format == "custom_include" %}
