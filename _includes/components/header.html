@@ -1,12 +1,25 @@
 
 {% if include.headerObj.slides %}
-    {% include components/slider.html sliderObj=include.headerObj.slides header="true" %}
+    {% include components/header_carousel.html sliderObj=include.headerObj.slides header="true" %}
 {% elsif include.headerObj.title %}
     {% assign header = include.headerObj %}
-    <div class="grid-x grid-padding-x flex-container align-middle header callout large {% if header.class %}{{header.class}}{% endif %}">
+    <div class="grid-x grid-padding-x flex-container align-middle header callout large {% if header.video or header.background_image %}darken{% endif %}{% if header.class %}{{header.class}}{% endif %}">
         {% if header.image %}
             {% assign image_path = header.image | remove_first: "/assets/images/" %}
             {% picture blog_header_image {{image_path}} %}
+        {% endif %}
+        {% if header.video %}
+        <video autoplay muted preload="none" poster="{{header.video.poster}}" playsinline loop id="jumbotronVideo">
+            {% if header.video.source.mp4 %}
+                <source src="{{header.video.source.mp4}}" type="video/mp4">
+            {% endif %}
+            {% if header.video.source.ogg %}
+                <source src="{{header.video.source.ogg}}" type="video/ogg">
+            {% endif %}
+            {% if header.video.source.webm %}
+                <source src="{{header.video.source.webm}}" type="video/webm">
+            {% endif %}
+        </video>
         {% endif %}
         <div class="cell text-center">
             <h1>{{header.title}}</h1>
