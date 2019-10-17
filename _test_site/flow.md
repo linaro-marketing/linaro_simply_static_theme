@@ -6,15 +6,19 @@ descrtion: >
     This page showcases the power of the flow.html Jekyll include provided in this theme.
 keywords: flow, jekyll, automation, simple, bootstrap 3
 header:
-    slides:
-        - title: Test
-          image: /assets/images/content/background-image1.jpg
-        - title: Test
-          image: /assets/images/content/background-image1.jpg
-        - title: Test
-          image: /assets/images/content/background-image1.jpg
-        - title: Test
-          image: /assets/images/content/background-image1.jpg
+    title: Video Background header
+    text: >
+        An example of a video background header.
+    buttons:
+        - title: Learn More
+          url: /learn/
+          class: button
+    video:
+        source:
+            mp4: https://s3.amazonaws.com/static-linaro-org/connect/assets/videos/LinaroConnectPromo.mp4
+            ogv: https://s3.amazonaws.com/static-linaro-org/connect/assets/videos/LinaroConnectPromo.ogv
+            webm: https://s3.amazonaws.com/static-linaro-org/connect/assets/videos/LinaroConnectPromo.webm
+        poster: /assets/images/content/san19-group-photo.jpg
 flow:
     - row: container_row
     #   style: dark
