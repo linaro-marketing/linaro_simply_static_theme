@@ -15,7 +15,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency "jekyll", "~> 4.0.0"
   spec.add_runtime_dependency "jekyll-feed"
   spec.add_runtime_dependency 'jekyll-include-cache'
-  spec.add_runtime_dependency "jekyll-4-picture-tag", "~> 1.0.1"
+  spec.add_runtime_dependency "jekyll_picture_tag"
   spec.add_runtime_dependency 'jekyll-paginate-v2', '>0'
   spec.add_runtime_dependency 'japr'
   spec.add_runtime_dependency 'jekyll_amp', '1.0.4'
