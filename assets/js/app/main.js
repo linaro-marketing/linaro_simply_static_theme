@@ -28,6 +28,21 @@ $(document).ready(function() {
   });
 
   // Owl Carousel Instantiation
+  if ($(".owl-carousel.header_carousel").length > 0) {
+      $(".owl-carousel.header_carousel").owlCarousel({
+        dots: true,
+        slideSpeed: 300,
+        autoplayTimeout: 5000,
+        rewindSpeed: 500,
+        rewind: true,
+        items: 1,
+        autoplay: true,
+        responsiveClass: true,
+        lazyLoad: true,
+        lazyLoadEager: 0
+      });
+  }
+  // Owl Carousel Instantiation
   if ($(".owl-carousel.slider-block").length > 0) {
     $(".owl-carousel.slider-block").each(function(index) {
       // Set Default values for the responsive items
