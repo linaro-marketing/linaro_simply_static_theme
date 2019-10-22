@@ -53,15 +53,19 @@
         -o-background-size: cover;
         background-size: cover;
         background-position: center center;
+        background-color: $primary-color;
         z-index:0;
         overflow:hidden;
         .cell {
             position:relative;
             z-index: 1;
         }
+        h1, p, a{
+            color: $header_text_color;
+        }
         &.darken {
             h1, p, a{
-                color: white;
+                color: $background_header_text_color;
 
             }
         }
