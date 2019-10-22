@@ -44,7 +44,17 @@
                                                 <a href="#">{{sub_item.title}}</a>
                                                 <ul class="submenu menu vertical" data-submenu>
                                                     {% for sub_sub_item in sub_item.options %}
-                                                        <li><a href="{{sub_sub_item.url}}">{{sub_sub_item.title}}</a></li>
+                                                        {% if sub_sub_item.options %}
+                                                            <li class="has-submenu">
+                                                                <a href="#">{{sub_sub_item.title}}</a>
+                                                                <ul class="submenu menu vertical" data-submenu>
+                                                                    {% for sub_sub_sub_item in sub_sub_item.options %}
+                                                                        <li><a href="{{sub_sub_item.url}}">{{sub_sub_item.title}}</a></li>
+                                                                    {% endfor %}
+                                                                </ul>
+                                                        {% else %}
+                                                            <li><a href="{{sub_sub_item.url}}">{{sub_sub_item.title}}</a></li>
+                                                        {% endif %}
                                                     {% endfor %}
                                                 </ul>
                                             </li>
