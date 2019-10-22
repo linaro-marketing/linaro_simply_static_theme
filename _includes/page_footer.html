@@ -4,9 +4,9 @@
             {% assign col_size = site.data.footer.sections | size %}
             {% assign col_size_calculated = 12 | divided_by: col_size %}
             {% for section in site.data.footer.sections %}
-                <div class="cell small-12 medium-{{col_size_calculated}}">
+                <div class="cell footer_column small-12 medium-6 large-{{col_size_calculated}}">
                     {% if section.title_url %}<a href="{{section.title_url}}">{% endif %}
-                    <h3>{{section.title}}</h3>
+                    <h4>{{section.title}}</h4>
                     {% if section.title_url %}</a>{% endif %}
 
                     {% if section.multiline_text %}
