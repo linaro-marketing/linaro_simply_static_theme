@@ -91,3 +91,23 @@ body::-webkit-scrollbar-thumb {
     max-width: 100%;
     height: auto;
 }
+#root {
+    .owl-dots {
+        .owl-dot.active span {
+            background: #78ac00;
+        }
+        .owl-dot:hover span {
+            background: #78ac00;
+        }
+    }
+    .owl-nav {
+        button {
+            font-weight:bold;
+            font-size:22px;
+            padding-top:0px;
+            &:hover {
+                background-color: $primary-color;
+            }
+        }
+    }
+}
