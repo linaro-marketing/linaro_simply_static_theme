@@ -14,7 +14,7 @@
     {% elsif section.format == "custom_include" %}
         {% include {{section.source}} object=section %}
     {% elsif section.format == "slider" %}
-        {% include flow/slider.html object=section.slider_content %}
+        {% include flow/slider.html object=section.slider_content class="slider_block_row" %}
     {% elsif section.format == "feature_block" %}
         {% include flow/feature_block.html object=section.feature_block_content %}
     {% endif %}
