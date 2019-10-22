@@ -1,9 +1,9 @@
 ---
 layout: base
 ---
-<div itemscope itemtype="http://schema.org/{% if page.category == "News" %}Article{% else %}BlogPosting{% endif %}" class="grid-x grid-padding-x flex-container header align-middle callout large darken">
-    <link itemprop="image" href="{{site.url}}{% if page.image.path %}{{page.image.path}}{% else %}{{page.image}}{% endif %}" />
+<div itemscope itemtype="http://schema.org/{% if page.category == "News" %}Article{% else %}BlogPosting{% endif %}" class="grid-x grid-padding-x flex-container header align-middle callout large {% if page.image %}darken background_image{% endif %}">
     {% if page.image %}
+        <link itemprop="image" href="{{site.url}}{% if page.image.path %}{{page.image.path}}{% else %}{{page.image}}{% endif %}" />
         {% if page.image.path %}
             {% assign image_path = page.image.path | remove_first: "/assets/images/" %}
         {% else %}
