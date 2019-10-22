@@ -73,7 +73,7 @@ flow:
             size: h2
             text: Block Row
         - format: block
-          style: text-center text-white
+          class: text-center text-white
           block_section_content:
             item_width: "3"
             blocks:

@@ -58,7 +58,7 @@ flow:
                     alt: JS Logo
                 url: https://github.com/linaro-marketing/jumbo-jekyll-theme
         - format: buttons
-          style: text-center
+          class: text-center
           buttons_content:
               - title: More Details
                 url: /about/
@@ -77,7 +77,7 @@ flow:
           text_content:
             text: A container row featuring a background image
         - format: buttons
-          style: text-center
+          class: text-center
           buttons_content:
             - title: More Details
               url: /about/
@@ -92,7 +92,7 @@ flow:
             size: h2
             text: Block Row
         - format: block
-          style: text-center text-white
+          class: text-center text-white
           block_section_content:
             item_width: "3"
             blocks:
