@@ -18,7 +18,7 @@ plugins:
   - jekyll-include-cache
   - jekyll-paginate-v2
   - japr
-  # - s
+  - jekyll_amp
 collections:
   authors:
     output: true
