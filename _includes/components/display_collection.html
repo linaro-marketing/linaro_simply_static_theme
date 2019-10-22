@@ -100,10 +100,12 @@
                             {% capture image_path %}{{site.social_share_image | remove_first: '/assets/images/' }}{% endcapture %}
                         {% elsif post.image.path %}
                             {% capture image_path %}{{post.image.path | remove_first: '/assets/images/' }}{% endcapture %}
-                        {% else %}
-                            {% capture image_path %}{{site.social_share_image | remove_first: '/assets/images/' }}{% endcapture %}
+                        {% elsif page.collection_placeholder %}
+                            {% capture image_path %}{{page.collection_placeholder | remove_first: '/assets/images/' }}{% endcapture %}
                         {% endif %}
-                        {% picture blog {{image_path}} alt=post.title %}
+                        {% if image_path %}
+                            {% picture blog {{image_path}} alt=post.title %}
+                        {% endif %}
                         <div class="read-article">
                             <i class="fa fa-eye"></i>{{button_text}}
                         </div>
