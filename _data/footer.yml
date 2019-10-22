@@ -7,7 +7,7 @@ sections:
         - Cambridge, United Kingdom
         - CB22 7GG
     - title: Latest Blogs
-      # latest_posts: true
+      latest_posts: true
       items:
        - title: 96Boards
          url: https://www.96boards.org
