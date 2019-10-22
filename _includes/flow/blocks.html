@@ -1,5 +1,11 @@
 <div class="cell">
-    <div class="grid-x grid-padding-x {% if include.object.class %}{{include.object.class}}{% endif %}align-middle small-12 medium-up-{{include.object.block_section_content.item_width}}">
+    {% assign number_of_blocks_modulus = include.object.block_section_content.blocks | size | modulo: 2 %}
+    {% if number_of_blocks_modulus == 0 %}
+        {% assign medium_size = 2 %}
+    {% else %}
+        {% assign medium_size = 1 %}
+    {% endif %}
+    <div class="grid-x grid-padding-x {% if include.object.class %}{{include.object.class}}{% endif %}align-middle small-12 medium-up-{{medium_size}} large-up-{{include.object.block_section_content.item_width}}">
         {% for block in include.object.block_section_content.blocks %}
         <div class="cell">
             {% if block.url %}<a href="{{block.url}}">{% endif %}
