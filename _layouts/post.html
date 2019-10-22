@@ -38,22 +38,31 @@ layout: base
 </div>
 <div class="grid-container fluid main_content_row">
     <div class="grid-container">
-        <div class="grid-x grid-margin-x">
+        <div class="grid-x grid-margin-x grid-margin-y">
             <div class="cell medium-8 medium-offset-2">
                 <article class="post-content">
                     {{ content }}
                     {% include components/post_series.html %}
                 </article>
                 {% include components/disqus_comments.html %}
-                <div class="PostNav">
-                    {% if page.previous.url %}
-                    <a class="prev" href="{{page.previous.url}}">&laquo; {{page.previous.title}}</a>
-                    {% endif %}
-                    {% if page.next.url %}
-                    <a class="next" href="{{page.next.url}}">{{page.next.title}} &raquo;</a>
-                    {% endif %}
-                </div>
-            </div>
         </div>
+    </div>
+</div>
+<div class="grid-container fluid post_nav">
+    <div class="grid-x grid-margin-x grid-padding-y">
+        {% if page.previous.url %}
+            <div class="cell small-12 medium-6 previous_post">
+                <a class="prev" href="{{page.previous.url}}">
+                    <span class="previous_post"><i class="icon-left-big"></i>Previous post</span>
+                </a>
+            </div>
+        {% endif %}
+        {% if page.next.url %}
+            <div class="cell small-12 medium-6 next_post">
+                <a class="next" href="{{page.next.url}}">
+                    <span class="next_post">Next post <i class="icon-right-big"></i></span>
+                </a>
+            </div>
+        {% endif %}
     </div>
 </div>
