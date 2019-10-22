@@ -1,4 +1,4 @@
-<div class="cell">
+<div class="cell {% if include.class %}{{include.class}}{% endif %}">
     <div class="owl-carousel slider-block owl-theme" data-size="{{include.object.items | size }}"
     {% if include.object.xs_items %}data-xs-number="{{include.object.xs_items}}"{% endif %}
     {% if include.object.sm_items %}data-sm-number="{{include.object.sm_items}}"{% endif %}
