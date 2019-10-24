@@ -3,26 +3,8 @@ layout: base
 ---
 <div class="product_wrapper" itemscope itemtype="http://schema.org/Product">
 
-<div class="grid-container fluid main_content_row {% if site.breadcrumb_image %}breadcrumb_image{% endif %}" {% if site.breadcrumb_image %}style="background-image:url({{site.breadcrumb_image}});"{% endif %} id="breadcrumb">
-    <article class="grid-container">
-        <div class="grid-x grid-margin-x">
-            <div class="cell medium-6">
-                <header>
-                    <h1 itemprop="name">{{page.title}}</h1>
-                </header>
-                <nav aria-label="You are here:" role="navigation">
-                    <ol class="breadcrumbs">
-                        <li><a href="/products/">Products</a></li>
-                        <li>
-                            <meta itemprop="url" content="{{page.url}}" />
-                            <span class="show-for-sr">Current: </span> Shoes
-                        </li>
-                    </ol>
-                </nav>
-            </div>
-        </div>
-    </article>
-</div>
+{% include components/breadcrumb.html %}
+
 <div class="grid-container fluid main_content_row" id="product_wrapper">
     <article class="grid-container">
         <div class="grid-x grid-margin-x">
