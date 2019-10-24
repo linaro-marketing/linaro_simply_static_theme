@@ -1,0 +1,21 @@
+<div class="grid-container fluid main_content_row {% if site.breadcrumb_image %}breadcrumb_image{% endif %}"
+    {% if site.breadcrumb_image %}style="background-image:url({{site.breadcrumb_image}});" {% endif %} id="breadcrumb">
+    <article class="grid-container">
+        <div class="grid-x grid-margin-x">
+            <div class="cell" id="page_breadcrumb">
+                <header>
+                    <h1 itemprop="name">{{page.title}}</h1>
+                </header>
+                <nav aria-label="You are here:" role="navigation">
+                    <ol class="breadcrumbs">
+                        <li><a href="/products/">Products</a></li>
+                        <li>
+                            <meta itemprop="url" content="{{page.url}}" />
+                            <span class="show-for-sr">Current: </span> Shoes
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </article>
+</div>
