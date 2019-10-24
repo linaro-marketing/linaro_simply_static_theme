@@ -97,6 +97,7 @@ function watchFiles() {
             "./_data/**/*",
             "./_sass/**/*",
             "./_test_site/**/*",
+            "./_documentation/**/*",
             "./_config*.yml",
             "./_products/**/*"
         ],
