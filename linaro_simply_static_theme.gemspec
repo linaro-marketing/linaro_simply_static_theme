@@ -30,6 +30,14 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'japr'
   # Jekyll Accelerated mobile pages support.
   spec.add_runtime_dependency 'jekyll_amp', '1.0.4'
+  # Generates a table of contents from a markdown document
+  spec.add_runtime_dependency 'jekyll-toc'
+  # Pulls the page title from the markdown document.
+  spec.add_runtime_dependency 'jekyll-titles-from-headings'
+  # Allows markdown pages to not include frontmatter - documentation
+  spec.add_runtime_dependency 'jekyll-optional-front-matter'
+  # Replaces relative links in markdown documents with absolute links
+  spec.add_runtime_dependency 'jekyll-relative-links', '0.6.1'
   # Gem bundler
   spec.add_development_dependency "bundler", "~> 1.16"
   spec.add_development_dependency "rake", "~> 12.0"
