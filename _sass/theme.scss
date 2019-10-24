@@ -1,11 +1,12 @@
 
-@import "theme/header";
 @import "theme/navbar";
-@import "theme/products";
+@import "theme/header";
 @import "theme/footer";
 @import "theme/fontello";
 @import "theme/post";
+@import "theme/products";
 @import "theme/flow";
+@import "theme/documentation";
 
 @font-face {
   font-family: 'Lato';
@@ -109,5 +110,8 @@ body::-webkit-scrollbar-thumb {
                 background-color: $primary-color;
             }
         }
+    }
+    .main_content_row {
+        padding-top: 20px;
     }
 }
