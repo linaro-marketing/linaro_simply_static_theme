@@ -1,0 +1,22 @@
+title: All layouts can have a title
+description: >
+    All layouts can have a description
+    that's multiline.
+schema:
+  "@type": "Corporation"
+  "name": "Linaro"
+  "url": "https://www.linaro.org"
+  "logo": "https://www.linaro.org/assets/images/content/linaro-logo.png"
+  "contactPoint":
+      "@type": "ContactPoint"
+      "telephone": "01223 400060"
+      "contactType": "customer service"
+      "availableLanguage": "en"
+  "sameAs":
+      - "https://facebook.com/LinaroOrg"
+      - "https://twitter.com/LinaroOrg"
+      - "https://instagram.com/LinaroOrg"
+      - "https://www.linkedin.com/company/1026961/"
+      - "https://youtube.com/LinaroOrg"
+      - "https://github.com/linaro"
+      - "https://www.linaro.org"

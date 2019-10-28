@@ -1,0 +1,10 @@
+title: Example Post
+date: 2018-10-11 12:00:00
+description: >-
+    An example multiline post description
+    that will add the text widget in the netlifycms
+    config.
+image: /assets/images/content/background-image2.png
+author: kyle
+category: blog
+keywords: jekyll, note, theme
