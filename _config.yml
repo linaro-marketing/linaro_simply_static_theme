@@ -2,10 +2,11 @@ title: Linaro Simply Static Theme
 description: > # this means to ignore newlines until "baseurl:"
   A lightweight foundation css framework Jekyll theme.
 tagline:  A lightweight foundation css framework Jekyll theme.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://localhost:4000" # the base hostname & protocol for your site
-highlighter: rouge
+# baseurl: "" # the subpath of your site, e.g. /blog
+# url: "http://localhost:4001" # the base hostname & protocol for your site
+
 google_analytics: UA-XXXXXXXXXX-4
+highlighter: rouge
 # Default Post permalink
 permalink: /:categories/:title/
 # Default Markdown Processor
@@ -19,6 +20,10 @@ plugins:
   - jekyll-paginate-v2
   - japr
   - jekyll_amp
+  - jekyll-toc
+  - jekyll-titles-from-headings
+  - jekyll-relative-links
+  - jekyll-optional-front-matter
 collections:
   authors:
     output: true
@@ -29,6 +34,10 @@ collections:
     output: true
     permalink: /product/:name/
     layout: product
+  # Test the products config
+  documentation:
+    output: true
+    layout: documentation
 # SASS Config
 sass:
   sass_dir: _sass
@@ -60,10 +69,6 @@ picture:
   relative_url: false
 defaults:
   - scope:
-      path: "" # an empty string here means all files in the project
-    values:
-      layout: "page"
-  - scope:
       type: posts # an empty string here means all files in the project
     values:
       layout: "post"
@@ -77,6 +82,14 @@ defaults:
         enabled: true
         repo: https://github.com/96boards/documentation
         strip_from_path: _products/
+  - scope:
+      type: documentation # an empty string here means all files in the project
+    values:
+      layout: "documentation"
+      output: true
+      permalink: "/documentation/:path/"
+      strip_title: true
+      toc: true
 # Include the site content
 include: ["_test_site", "_pages"]
 # Social Media Links
@@ -125,3 +138,27 @@ github_edit:
 # jekyll_amp config
 ampdir: /amp
 amp: false
+# Jekyll-toc config
+toc:
+  # Default is "section-nav":
+  list_class: doc_nav vertical menu accordion-menu
+  # Default is no class for sublists:
+  sublist_class: doc_nav__sublist menu vertical nested
+  # Default is "toc-entry":
+  item_class: doc_nav_item
+  # Default is "toc-":
+  item_prefix: doc_nav_toc_
+  ordered: true
+# jekyll-relative-links config
+relative_links:
+  enabled:     true
+  collections: false
+# jekyll-titles-from-headings config
+titles_from_headings:
+  enabled:     true
+  strip_title: false
+  collections: true
+# jekyll-optional-front-matter config
+optional_front_matter:
+  remove_originals: true
+  enabled: true
