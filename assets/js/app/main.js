@@ -27,6 +27,13 @@ $(document).ready(function() {
     }
   });
 
+  // Sticky Doc Sidebar with Magellan
+  if($("#doc_sidebar").length > 0){
+      var sidebar  = $("#doc_sidebar");
+      var sidebar_nav = sidebar.find("ul");
+      new Foundation.Magellan(sidebar_nav);
+  }
+
   // Owl Carousel Instantiation
   if ($(".owl-carousel.header_carousel").length > 0) {
       $(".owl-carousel.header_carousel").owlCarousel({
