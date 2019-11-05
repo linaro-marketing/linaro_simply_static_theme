@@ -6,12 +6,14 @@ toc: true
 <div class="grid-container fluid main_content_row docs">
     <div class="grid-container">
         <div class="grid-x grid-margin-x">
+            {% if page.toc %}
             <div class="cell medium-4 large-3" data-sticky-container>
                 <div id="doc_sidebar" class="sticky" data-sticky-on="medium" data-sticky data-margin-top="5" data-anchor="doc_content">
-                    {% include components/toc.html html=content ordered=true %}
+                        {% toc %}
                 </div>
             </div>
-            <div class="cell medium-8 large-9" id="doc_content">
+            {% endif %}
+            <div class="cell {% if page.toc %}medium-8 large-9{% endif %}" id="doc_content">
                 {{content}}
             </div>
         </div>
