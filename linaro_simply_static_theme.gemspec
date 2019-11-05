@@ -13,7 +13,6 @@ Gem::Specification.new do |spec|
   spec.files         = `git ls-files -z`.split("\x0").select do |f|
     f.match(%r{^(assets|_(data|includes|layouts|sass)/|(LICENSE|README|robots|_config)((\.(txt|md|markdown|yml)|$)))}i)
   end
-
   # Jekyll 4 !
   spec.add_runtime_dependency "jekyll", "~> 4.0.0"
   # Add's an RSS feed for your posts
@@ -38,6 +37,8 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'jekyll-optional-front-matter'
   # Replaces relative links in markdown documents with absolute links
   spec.add_runtime_dependency 'jekyll-relative-links', '0.6.1'
+  # Allow READMEs to become the index page for a folder
+  spec.add_runtime_dependency 'jekyll-readme-index'
   # Gem bundler
   spec.add_development_dependency "bundler", "~> 1.16"
   spec.add_development_dependency "rake", "~> 12.0"
