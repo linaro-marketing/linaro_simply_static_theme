@@ -1,6 +1,6 @@
 <div class="grid-container fluid {% if include.object.style %}{{include.object.style}}{% endif %}
 {% if include.object.background_image %}background_image_row overlay{% endif %}"
-{% if include.object.background_image %}style="background-image: url({{include.object.background_image}})"
+{% if include.object.background_image %}style="background-image: url({{include.object.background_image | relative_url}})"
     {% endif %}>
     {% if include.object.background_svg %}
         <div class="background_svg">
