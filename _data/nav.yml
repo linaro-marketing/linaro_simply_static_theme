@@ -38,7 +38,7 @@ pages:
     - title: Documentation
       options:
           - title: Getting Started
-            url: /documentation/getting-started/
+            url: /documentation/consumer/guides/
           - title: View Wiki
             url: https://github.com/linaro-marketing/linaro_simply_static_theme
     - title: Layouts
