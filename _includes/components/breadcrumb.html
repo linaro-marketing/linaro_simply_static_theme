@@ -1,5 +1,5 @@
 <div class="grid-container fluid main_content_row {% if site.breadcrumb_image %}breadcrumb_image{% endif %}"
-    {% if site.breadcrumb_image %}style="background-image:url({{site.breadcrumb_image}});" {% endif %} id="breadcrumb">
+    {% if site.breadcrumb_image %}style="background-image:url({{site.breadcrumb_image | relative_url}});" {% endif %} id="breadcrumb">
     <article class="grid-container">
         <div class="grid-x grid-margin-x">
             <div class="cell" id="page_breadcrumb">
@@ -8,11 +8,21 @@
                 </header>
                 <nav aria-label="You are here:" role="navigation">
                     <ol class="breadcrumbs">
-                        <li><a href="/products/">Products</a></li>
-                        <li>
-                            <meta itemprop="url" content="{{page.url}}" />
-                            <span class="show-for-sr">Current: </span> Shoes
-                        </li>
+                        {% assign split_page_url_count = page.url | split: "/" | size | minus: 1 %}
+                        {% assign split_page_url = page.url | split: "/" | slice: 1, split_page_url_count %}
+                        {% assign created_path = "/" %}
+                        {% for section in split_page_url %}
+                            {% capture created_path %}{{created_path}}{{section}}/{% endcapture %}
+                            <li>
+                                <meta itemprop="url" content="{{created_path}}" />
+                                {% if forloop.last %}
+                                    {{section}}
+                                    <span class="show-for-sr">Current: </span>
+                                {% else %}
+                                    <a href="{{created_path}}">{{section}}</a></span>
+                                {% endif %}
+                            </li>
+                        {% endfor %}
                     </ol>
                 </nav>
             </div>
