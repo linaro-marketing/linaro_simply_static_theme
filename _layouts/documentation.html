@@ -8,7 +8,7 @@ toc: true
         <div class="grid-x grid-margin-x">
             <div class="cell medium-4 large-3" data-sticky-container>
                 <div id="doc_sidebar" class="sticky" data-sticky-on="medium" data-sticky data-margin-top="5" data-anchor="doc_content">
-                    {% toc %}
+                    {% include components/toc.html html=content ordered=true %}
                 </div>
             </div>
             <div class="cell medium-8 large-9" id="doc_content">
