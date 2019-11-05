@@ -10,7 +10,7 @@
             <div class="title-bar-right">
                 <button class="menu-icon  float-right" type="button" data-toggle></button>
                 <div class="title-bar-title  float-left">
-                    <a href="{{site.data.nav.brand.url}}">
+                    <a href="{{site.data.nav.brand.url | relative_url}}">
                         <img src="{{site.data.nav.brand.image_path}}" alt="{{site.title}} Brand logo" /></div>
                     </a>
             </div>
@@ -49,23 +49,23 @@
                                                                 <a href="#">{{sub_sub_item.title}}</a>
                                                                 <ul class="submenu menu vertical" data-submenu>
                                                                     {% for sub_sub_sub_item in sub_sub_item.options %}
-                                                                        <li><a href="{{sub_sub_item.url}}">{{sub_sub_item.title}}</a></li>
+                                                                        <li><a href="{{sub_sub_item.url | relative_url}}">{{sub_sub_item.title}}</a></li>
                                                                     {% endfor %}
                                                                 </ul>
                                                         {% else %}
-                                                            <li><a href="{{sub_sub_item.url}}">{{sub_sub_item.title}}</a></li>
+                                                            <li><a href="{{sub_sub_item.url | relative_url}}">{{sub_sub_item.title}}</a></li>
                                                         {% endif %}
                                                     {% endfor %}
                                                 </ul>
                                             </li>
                                         {% else %}
-                                            <li><a href="{{sub_item.url}}">{{sub_item.title}}</a></li>
+                                            <li><a href="{{sub_item.url | relative_url}}">{{sub_item.title}}</a></li>
                                         {% endif %}
                                     {% endfor %}
                                 </ul>
                             </li>
                         {% else %}
-                            <li class="{{class}}"><a href="{{item.url}}"><span>{{item.title}}</span>{% if item.icon %}<i class="{{item.icon}}"></i>{% endif %}</a></li>
+                            <li class="{{class}}"><a href="{{item.url | relative_url}}"><span>{{item.title}}</span>{% if item.icon %}<i class="{{item.icon}}"></i>{% endif %}</a></li>
                         {% endif %}
                     {% endfor %}
                     {% if site.data.nav.search_enabled %}
