@@ -30,7 +30,7 @@
                     <div class="grid-container">
                         <div class="grid-x grid-margin-x grid-padding-x grid-padding-y">
                             <div class="cell small-12 medium-7 medium-order-2 latest-featured-post">
-                                <a href="{{post.url}}">
+                                <a href="{{post.url | relative_url }}">
                                 {% if post.image contains "/assets/images/" %}
                                     {% capture image_path %}{{post.image | remove_first: '/assets/images/' }}{% endcapture %}
                                 {% elsif post.image == site.social_share_image %}
@@ -44,7 +44,7 @@
                                 </a>
                             </div>
                             <div class="cell small-12 medium-5 medium-order-1 latest-featured-post-content">
-                                <a href="{{post.url}}">
+                                <a href="{{post.url | relative_url }}">
                                     <div class="post-info">
                                         <span class="post-cat">{{post.categories | first | capitalize }}</span>
                                         <h3>{{post.title}}</h3>
@@ -71,7 +71,7 @@
                                             </div>
                                         </div>
                                         {% endunless %}
-                                        <a href="{{post.url}}" class="button large">
+                                        <a href="{{post.url | relative_url }}" class="button large">
                                             {{button_text}}
                                         </a>
                                     </div>
@@ -93,7 +93,7 @@
 
                 <div class="cell small-12 medium-6 large-4 ">
                     <div class="card">
-                    <a href="{{post.url}}">
+                    <a href="{{post.url | relative_url }}">
                         {% if post.image contains "/assets/images/" %}
                             {% capture image_path %}{{post.image | remove_first: '/assets/images/' }}{% endcapture %}
                         {% elsif post.image == site.social_share_image %}
