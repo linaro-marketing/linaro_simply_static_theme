@@ -1,17 +1,39 @@
+# Configurable Settings
+# ---------------------
+# These settings will change on a per-site
 title: Linaro Simply Static Theme
 description: > # this means to ignore newlines until "baseurl:"
   A lightweight foundation css framework Jekyll theme.
 tagline:  A lightweight foundation css framework Jekyll theme.
-# baseurl: "" # the subpath of your site, e.g. /blog
-# url: "http://localhost:4001" # the base hostname & protocol for your site
-
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://localhost:5000" # the base hostname & protocol for your site
 google_analytics: UA-XXXXXXXXXX-4
-highlighter: rouge
-# Default Post permalink
-permalink: /:categories/:title/
-# Default Markdown Processor
-markdown: kramdown
 favicon: /assets/images/favicon.png
+breadcrumb_image: /assets/images/content/breadcrumb.png
+# Social Media Links
+twitter_username: LinaroOrg
+facebook_username: LinaroOrg
+linkedin_username: false
+youtube_username: LinaroOrg
+github_username: Linaro
+social_share_image: /assets/images/social-media-image.png
+disqus_shortname: linaro
+# Blog Settings
+blog:
+  filler_element: collection_display_filler_element.html
+  avatar_placeholder: /assets/images/avatar-placeholder.jpg
+# GitHub Edit Settings
+github_edit:
+  enabled: true
+  repo: "https://github.com/96boards/website"
+# Main Jekyll Settings
+# --------------------
+# These settings will, usually, remain the same
+# for each site
+include: ["_test_site", "_pages"] # Include the site content
+highlighter: rouge # Default syntax highlighter
+permalink: /:categories/:title/ # Default Post permalink
+markdown: kramdown # Default Markdown Processor
 # Jekyll Plugins
 plugins:
   - jekyll_picture_tag
@@ -19,11 +41,15 @@ plugins:
   - jekyll-include-cache
   - jekyll-paginate-v2
   - japr
+  - jekyll-tidy
   - jekyll_amp
   - jekyll-toc
   - jekyll-titles-from-headings
   - jekyll-relative-links
+  - jekyll-toc
   - jekyll-optional-front-matter
+  - jekyll-readme-index
+# Jekyll Collections
 collections:
   authors:
     output: true
@@ -38,35 +64,7 @@ collections:
   documentation:
     output: true
     layout: documentation
-# SASS Config
-sass:
-  sass_dir: _sass
-  style: compressed
-# Exclude Array - these files are excluded from
-# processing when running a jekyll build
-exclude:
-  - Gemfile
-  - Gemfile.lock
-  - .gitignore
-  - .git
-  - .asset-cache
-  - _static-site
-  - .sass-cache
-  - .jekyll-cache
-  - _site
-  - package.json
-  - node_modules/*
-  - gulpfile.js
-  - .jekyll-cache
-  - README.md
-  - LICENSE.txt
-  - "*.gemspec"
-  - "*-lock.json"
-picture:
-  nomarkdown: false
-  source: "assets/images"
-  output: "assets/images"
-  relative_url: false
+# Jekyll Defaults
 defaults:
   - scope:
       type: posts # an empty string here means all files in the project
@@ -90,17 +88,43 @@ defaults:
       permalink: "/documentation/:path/"
       strip_title: true
       toc: true
-# Include the site content
-include: ["_test_site", "_pages"]
-# Social Media Links
-twitter_username: LinaroOrg
-facebook_username: LinaroOrg
-linkedin_username: false
-youtube_username: LinaroOrg
-github_username: Linaro
-social_share_image: /assets/images/social-media-image.png
-disqus_shortname: linaro
-# Jekyll Pagination V2 Configuration
+# Jekyll SASS Config
+sass:
+  sass_dir: _sass
+  style: compressed
+# Excluded Files
+# these files are excluded from
+# processing when running a jekyll build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - .gitignore
+  - .git
+  - .asset-cache
+  - _static-site
+  - .sass-cache
+  - .jekyll-cache
+  - _site
+  - package.json
+  - node_modules/*
+  - gulpfile.js
+  - .jekyll-cache
+  - README.md
+  - LICENSE.txt
+  - "*.gemspec"
+  - "*-lock.json"
+# Jekyll Plugin Settings
+# ----------------------
+# These settings are used to initialise the
+# jekyll plugins that we're using.
+# ----------------------
+# jekyll_picture_tag
+picture:
+  nomarkdown: false
+  source: "assets/images"
+  output: "assets/images"
+  relative_url: false
+# jekyll_paginate_v2
 pagination:
   # Default pagination path for Jekyll Posts
   # For other permalinks set in the front matter of the post index page
@@ -120,25 +144,20 @@ pagination:
 # Jekyll pagination v2 autopages configuration.
 autopages:
   enabled: false
-#Test config
-breadcrumb_image: /assets/images/content/breadcrumb.png
-# JAPR asset pipeline
+# japr
+# A Jekyll asset pipeline
+# This is being used for the concatenation/compression of JS
 asset_pipeline:
   bundle: true
   compress: true
   output_path: assets
   gzip: false
-blog:
-  filler_element: collection_display_filler_element.html
-  avatar_placeholder: /assets/images/avatar-placeholder.jpg
-github_edit:
-  enabled: true
-  repo: "https://github.com/96boards/website"
   # strip_from_path: _documentation
-# jekyll_amp config
+# jekyll_amp
+# Accelerated Mobile pages support
 ampdir: /amp
 amp: false
-# Jekyll-toc config
+# jekyll_toc
 toc:
   # Default is "section-nav":
   list_class: doc_nav vertical menu accordion-menu
@@ -149,16 +168,27 @@ toc:
   # Default is "toc-":
   item_prefix: doc_nav_toc_
   ordered: true
-# jekyll-relative-links config
+# jekyll-relative-links
 relative_links:
   enabled:     true
   collections: false
-# jekyll-titles-from-headings config
+# jekyll-titles-from-headings
 titles_from_headings:
   enabled:     true
   strip_title: false
   collections: true
-# jekyll-optional-front-matter config
+# jekyll-optional-front-matter
 optional_front_matter:
   remove_originals: true
   enabled: true
+# jekyll-readme-index
+readme_index:
+  enabled:          true
+  remove_originals: true
+  with_frontmatter: true
+# jekyll-tidy
+jekyll_tidy:
+  # Toggle compression of HTML
+  compress_html: true
+  # JS Path added to exclude to stop errors.
+  exclude: ["assets/**/*.js", "robots.txt", "admin/config.yml"]
