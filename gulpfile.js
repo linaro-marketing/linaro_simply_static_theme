@@ -39,7 +39,7 @@ function jekyllThemeSupport(sources) {
 }
 // Build the Jekyll Site
 function jekyll() {
-    return child_process.spawn("bundle", ["exec", "jekyll", "build", "--profile", "--trace"], { stdio: "inherit" });
+    return child_process.spawn("bundle", ["exec", "jekyll", "build", "--profile"], { stdio: "inherit" });
 }
 // BrowserSync
 function browserSync(done) {
@@ -47,7 +47,7 @@ function browserSync(done) {
         server: {
             baseDir: "./_site/"
         },
-        port: 4000
+        port: 4001
     });
     done();
 }
