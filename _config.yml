@@ -58,7 +58,7 @@ collections:
   # Test the products config
   products:
     output: true
-    permalink: /product/:name/
+    permalink: /products/:name/
     layout: product
   # Test the products config
   documentation:
@@ -67,12 +67,16 @@ collections:
 # Jekyll Defaults
 defaults:
   - scope:
-      type: posts # an empty string here means all files in the project
+      path: ""
+    values:
+      layout: "page"
+  - scope:
+      type: posts
     values:
       layout: "post"
       is_post: true
   - scope:
-      type: products # an empty string here means all files in the project
+      type: products
     values:
       layout: "product"
       is_post: true
@@ -81,7 +85,7 @@ defaults:
         repo: https://github.com/96boards/documentation
         strip_from_path: _products/
   - scope:
-      type: documentation # an empty string here means all files in the project
+      type: documentation
     values:
       layout: "documentation"
       output: true
@@ -183,7 +187,6 @@ optional_front_matter:
   enabled: true
 # jekyll-readme-index
 readme_index:
-  enabled:          true
   remove_originals: true
   with_frontmatter: true
 # jekyll-tidy
