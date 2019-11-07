@@ -1,0 +1,24 @@
+{% if page.tab_nav %}
+    {% assign tabs = page.tab_nav %}
+{% else %}
+    {% for entry in site.data.tab_nav.items %}
+        {% if entry.pages contains page.url %}
+            {% assign tabs = entry.tabs %}
+        {% endif %}
+    {% endfor %}
+{% endif %}
+<div class="grid-container fluid tabbed_nav">
+    <div class="grid-container">
+        <div class="grid-x grid-margin-x">
+            <div class="cell" data-sticky-container>
+                <ul class="tabs" data-tabs id="example-tabs" class="sticky" data-sticky-on="medium" data-sticky data-margin-top="5" data-anchor="main_content_row">
+                    {% for tab in tabs %}
+                        <li class="tabs-title {% if page.url == tab.url %}is-active{% endif %}">
+                            <a href="{{tab.url}}" {% if page.url == tab.url %}aria-selected="true"{% endif %}>{{tab.title}}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
