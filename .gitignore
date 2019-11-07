@@ -9,3 +9,4 @@ package-lock.json
 node_modules/*
 !node_modules/foundation-sites
 !node_modules/motion-ui
+.asset_pipeline
