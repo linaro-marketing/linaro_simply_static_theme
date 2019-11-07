@@ -45,8 +45,16 @@ pages:
       options:
           - title: Page (flow)
             url: /flow/
+          - title: Page (breadcrumb)
+            url: /pages/components/breadcrumb/
           - title: Blog
             url: /blog/
+          - title: Products
+            options:
+              - title: All
+                url: /products/
+              - title: Shoes
+                url: /products/shoes/
     - title: View on GitHub
       url: https://github.com/linaro-marketing/linaro_simply_static_theme
       icon: icon-github-circled
