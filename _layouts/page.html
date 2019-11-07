@@ -3,18 +3,17 @@ layout: base
 ---
 {% if page.header %}
     {% include components/header.html headerObj=page.header %}
+{% elsif page.breadcrumb %}
+    {% include components/breadcrumb.html %}
+{% endif %}
+{% if page.tab_nav %}
+    {% include components/tab_nav.html %}
 {% endif %}
 {% if page.flow %}
 <div id="flow_wrapper">
     {% for each in page.flow %}
         {% if each.row == "main_content_row" %}
-            <div class="grid-container fluid main_content_row">
-                <div class="grid-container">
-                    <div class="grid-x grid-margin-x">
-                        <div class="cell">{{content}}</div>
-                    </div>
-                </div>
-            </div>
+            {% include flow/main_content_row.html content=content %}
         {% elsif each.row == "container_row" %}
             {% include flow/container_row.html object=each %}
         {% elsif each.row == "full_width_row" %}
@@ -25,11 +24,5 @@ layout: base
     {% endfor %}
 </div>
 {% else %}
-    <div class="grid-container fluid main_content_row">
-        <div class="grid-container">
-            <div class="grid-x grid-margin-x">
-                <div class="cell">{{content}}</div>
-            </div>
-        </div>
-    </div>
+    {% include flow/main_content_row.html content=content %}
 {% endif %}
