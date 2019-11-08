@@ -7,11 +7,12 @@
         {% endif %}
     {% endfor %}
 {% endif %}
-<div class="grid-container fluid tabbed_nav">
+<div class="grid-container fluid" id="tabbed_nav_row" data-sticky-container class="sticky" data-sticky data-margin-top="5" data-anchor="flow_wrapper" data-margin-top="1">
     <div class="grid-container">
         <div class="grid-x grid-margin-x">
-            <div class="cell" data-sticky-container>
-                <ul class="tabs" data-tabs id="example-tabs" class="sticky" data-sticky-on="medium" data-sticky data-margin-top="5" data-anchor="main_content_row">
+            <div class="cell">
+                <!-- data-sticky-on="medium" -->
+                <ul class="tabs" data-tabs id="tabbed_nav_ul">
                     {% for tab in tabs %}
                         <li class="tabs-title {% if page.url == tab.url %}is-active{% endif %}">
                             <a href="{{tab.url}}" {% if page.url == tab.url %}aria-selected="true"{% endif %}>{{tab.title}}</a>
