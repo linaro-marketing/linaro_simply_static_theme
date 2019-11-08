@@ -1,11 +1,30 @@
 #root {
   div#tabbed_nav_row {
     border-bottom: 1px solid #e6e6e6;
-    border-top: 1px solid #e6e6e6;
+    &.is-stuck {
+      border-top: 1px solid #e6e6e6;
+    }
     padding-top: 0px;
     padding-bottom: 0px;
   }
   ul#tabbed_nav_ul {
     border: none;
+    li.tabs-title {
+      &:hover {
+        a {
+          background: $primary-color;
+          color: white;
+        }
+      }
+      &.is-active {
+        a {
+          background: $primary-color;
+          color: white;
+        }
+      }
+      a {
+        font-size: 1rem;
+      }
+    }
   }
 }
