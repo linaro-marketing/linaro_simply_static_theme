@@ -6,23 +6,23 @@ layout: base
 {% elsif page.breadcrumb %}
     {% include components/breadcrumb.html %}
 {% endif %}
-{% if page.tab_nav %}
-    {% include components/tab_nav.html %}
-{% endif %}
-{% if page.flow %}
 <div id="flow_wrapper">
-    {% for each in page.flow %}
-        {% if each.row == "main_content_row" %}
-            {% include flow/main_content_row.html content=content %}
-        {% elsif each.row == "container_row" %}
-            {% include flow/container_row.html object=each %}
-        {% elsif each.row == "full_width_row" %}
-            {% include flow/full_width_row.html object=each %}
-        {% elsif each.row == "custom_include_row" %}
-            {% include {{each.source}} %}
-        {% endif %}
-    {% endfor %}
+    {% if page.tab_nav %}
+        {% include components/tab_nav.html %}
+    {% endif %}
+    {% if page.flow %}
+        {% for each in page.flow %}
+            {% if each.row == "main_content_row" %}
+                {% include flow/main_content_row.html content=content %}
+            {% elsif each.row == "container_row" %}
+                {% include flow/container_row.html object=each %}
+            {% elsif each.row == "full_width_row" %}
+                {% include flow/full_width_row.html object=each %}
+            {% elsif each.row == "custom_include_row" %}
+                {% include {{each.source}} %}
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        {% include flow/main_content_row.html content=content %}
+    {% endif %}
 </div>
-{% else %}
-    {% include flow/main_content_row.html content=content %}
-{% endif %}
