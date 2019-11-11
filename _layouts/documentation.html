@@ -3,18 +3,21 @@ layout: base
 toc: true
 ---
 {% include components/breadcrumb.html %}
-<div class="grid-container fluid main_content_row docs">
-    <div class="grid-container">
-        <div class="grid-x grid-margin-x">
-            {% if page.toc %}
-            <div class="cell medium-4 large-3" data-sticky-container>
-                <div id="doc_sidebar" class="sticky" data-sticky-on="medium" data-sticky data-margin-top="5" data-anchor="doc_content">
+<div id="flow_wrapper">
+    {% include components/tab_nav.html class="docs" %}
+    <div class="grid-container fluid main_content_row docs" id="main_content_row">
+        <div class="grid-container">
+            <div class="grid-x grid-margin-x">
+                {% if page.toc %}
+                <div class="cell medium-4 large-3" data-sticky-container>
+                    <div id="doc_sidebar" class="sticky" data-sticky-on="medium" data-sticky data-margin-top="5" data-anchor="doc_content">
                         {% toc %}
+                    </div>
                 </div>
-            </div>
-            {% endif %}
-            <div class="cell {% if page.toc %}medium-8 large-9{% endif %}" id="doc_content">
-                {{content}}
+                {% endif %}
+                <div class="cell {% if page.toc %}medium-8 large-9{% endif %}" id="doc_content">
+                    {{content}}
+                </div>
             </div>
         </div>
     </div>
