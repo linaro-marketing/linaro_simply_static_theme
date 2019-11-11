@@ -7,7 +7,8 @@
         {% endif %}
     {% endfor %}
 {% endif %}
-<div class="grid-container fluid" id="tabbed_nav_row" data-sticky-container class="sticky" data-sticky data-margin-top="5" data-anchor="flow_wrapper" data-margin-top="1">
+{% if tabs %}
+<div class="grid-container fluid {% if include.class %}{{include.class}}{% endif %}" id="tabbed_nav_row" data-sticky-container class="sticky" data-sticky data-margin-top="5" data-anchor="flow_wrapper" data-margin-top="1">
     <div class="grid-container">
         <div class="grid-x grid-margin-x">
             <div class="cell">
@@ -23,3 +24,4 @@
         </div>
     </div>
 </div>
+{% endif %}
