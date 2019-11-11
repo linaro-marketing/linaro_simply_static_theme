@@ -28,26 +28,31 @@ $(document).ready(function() {
   });
 
   // Sticky Doc Sidebar with Magellan
-  if($("#doc_sidebar").length > 0){
-      var sidebar  = $("#doc_sidebar");
-      var sidebar_nav = sidebar.find("ul");
-      new Foundation.Magellan(sidebar_nav);
+  if ($("#doc_sidebar").length > 0) {
+    var sidebar = $("#doc_sidebar");
+    var sidebar_nav = sidebar.find("ul");
+    // new Foundation.Magellan(sidebar_nav);
+    // Check to see if the tab bar is in use
+  }
+  if ($("#tabbed_nav_row").length > 0) {
+    console.log("updating anchor data attr");
+    //   $("#doc_sidebar").attr("data-anchor", "tabbed_nav");
   }
 
   // Owl Carousel Instantiation
   if ($(".owl-carousel.header_carousel").length > 0) {
-      $(".owl-carousel.header_carousel").owlCarousel({
-        dots: true,
-        slideSpeed: 300,
-        autoplayTimeout: 5000,
-        rewindSpeed: 500,
-        rewind: true,
-        items: 1,
-        autoplay: true,
-        responsiveClass: true,
-        lazyLoad: true,
-        lazyLoadEager: 0
-      });
+    $(".owl-carousel.header_carousel").owlCarousel({
+      dots: true,
+      slideSpeed: 300,
+      autoplayTimeout: 5000,
+      rewindSpeed: 500,
+      rewind: true,
+      items: 1,
+      autoplay: true,
+      responsiveClass: true,
+      lazyLoad: true,
+      lazyLoadEager: 0
+    });
   }
   // Owl Carousel Instantiation
   if ($(".owl-carousel.slider-block").length > 0) {
