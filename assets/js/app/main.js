@@ -40,7 +40,7 @@ $(document).ready(function() {
       rewind: true,
       items: 1,
       autoplay: true,
-      responsiveClass: true,
+      responsiveClass:  true,
       lazyLoad: true,
       lazyLoadEager: 0
     });
