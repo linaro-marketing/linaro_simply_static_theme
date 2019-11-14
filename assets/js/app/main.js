@@ -1,9 +1,11 @@
 var universal_nav_toggled = false;
 $("#universal_nav_toggle").on("click", function() {
+  "use strict";
   universal_nav_toggled = !universal_nav_toggled;
 });
 
 $(document).on("scroll", function() {
+  "use strict";
   if ($(document).scrollTop() > 0) {
     $("#universal_nav_sticky").hide();
     if (universal_nav_toggled === true) {
@@ -17,6 +19,7 @@ $(document).on("scroll", function() {
 });
 
 $(document).ready(function() {
+  "use strict";
   // Open External links in a new tab
   $("a").each(function() {
     var a = new RegExp("/" + window.location.host + "/");
@@ -26,18 +29,6 @@ $(document).ready(function() {
       }
     }
   });
-
-  // Sticky Doc Sidebar with Magellan
-  if ($("#doc_sidebar").length > 0) {
-    var sidebar = $("#doc_sidebar");
-    var sidebar_nav = sidebar.find("ul");
-    // new Foundation.Magellan(sidebar_nav);
-    // Check to see if the tab bar is in use
-  }
-  if ($("#tabbed_nav_row").length > 0) {
-    console.log("updating anchor data attr");
-    //   $("#doc_sidebar").attr("data-anchor", "tabbed_nav");
-  }
 
   // Owl Carousel Instantiation
   if ($(".owl-carousel.header_carousel").length > 0) {
@@ -60,7 +51,7 @@ $(document).ready(function() {
       // Set Default values for the responsive items
       var xs_items = 1;
       var sm_items = 2;
-      var xs_items = 3;
+      var md_items = 3;
       var lg_items = 4;
       var seconds_per_slide = 5000;
       var dots = false;
