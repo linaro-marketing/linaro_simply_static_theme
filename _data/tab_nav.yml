@@ -1,0 +1,5 @@
+items:
+  - tabs:
+      - { title: "About", url: /services/ }
+      - { title: "Partners", url: /services/partners/ }
+    urls: [/services/, /services/partners/]
