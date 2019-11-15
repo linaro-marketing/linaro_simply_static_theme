@@ -1,37 +1,32 @@
 <div class="grid-container fluid" id="footer_sections">
     <div class="grid-container">
         <div class="grid-x grid-margin-x align-stretch">
-            {% assign col_size = site.data.footer.sections | size %}
-            {% assign col_size_calculated = 12 | divided_by: col_size %}
-            {% for section in site.data.footer.sections %}
-                <div class="cell footer_column small-12 medium-6 large-{{col_size_calculated}}">
-                    {% if section.title_url %}<a href="{{section.title_url}}">{% endif %}
-                    <h4>{{section.title}}</h4>
-                    {% if section.title_url %}</a>{% endif %}
-
-                    {% if section.multiline_text %}
-                        <p>
-                            {% for line in section.multiline_text %}
-                                {{line}}<br>
-                            {% endfor %}
-                        </p>
-                    {% endif %}
-
-                    {% if section.latest_posts %}
-                        {% include_cached components/latest_posts.html %}
-                    {% elsif section.social_media_links %}
-                        {% include_cached components/social_media_links.html %}
-                    {% elsif section.items %}
-                    <ul>
-                        {% for item in section.items %}
-                            <li>
-                                <a href="{{item.url}}">{{item.title}}</a>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                    {% endif %}
-                </div>
-            {% endfor %}
+            <div class="cell address footer_column small-10 small-offset-1 medium-offset-0 medium-6 large-4">
+                <a href="mailto:{{site.email}}">
+                    <h3 class="highlighted_heading">{{site.email}}</h3>
+                </a>
+                <p>
+                    {% for line in site.data.footer.address %}
+                        {{line}}<br>
+                    {% endfor %}
+                </p>
+                <h3 class="highlighted_heading">Follow us</h3>
+                {% include_cached components/social_media_links.html %}
+            </div>
+            <div class="cell footer_column small-10 small-offset-1 medium-offset-0  medium-6 large-4">
+                <h3>Latest News & Blogs</h3>
+                {% include_cached components/latest_posts.html %}
+            </div>
+            <div class="cell footer_column small-10 small-offset-1 medium-offset-0  medium-6 large-4">
+                <h3>{{site.data.footer.other_column.title}}</h3>
+                <ul>
+                    {% for item in site.data.footer.other_column.items %}
+                    <li>
+                        <a href="{{item.url}}">{{item.title}}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
         </div>
     </div>
 </div>
