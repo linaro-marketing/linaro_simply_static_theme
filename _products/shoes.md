@@ -49,13 +49,13 @@ product_table:
         - STM32MP157AAC
         - 1x 3D GPU Vivante® @ 533 MHz -OpenGL® ES 2.0
 # Include the tab menu _data/tab_menu.yml
-tab_nav:
-  - title: Test
-    url: /products/shoes/
-  - title: Pages
-    url: /pages/
-  - title: Components
-    url: /pages/components/
+tab_nav: true
+#   - title: Test
+#     url: /products/shoes/
+#   - title: Pages
+#     url: /pages/
+#   - title: Components
+#     url: /pages/components/
 ---
 
 The 96Boards SoM Carrier Board is an Interface debugging and testing carrier board. This 96Board is compliant with accordance to “96Boards Compute SoM Specification” and “96Boards Enterprise Edition Specification” This carrier board provides as many interfaces as possible to meet the needs of SoM board debugging and testing. This Carrier Board has already been adapted to TB-96AI SoM and TB-96AIoT SoM boards. \*\*\*
