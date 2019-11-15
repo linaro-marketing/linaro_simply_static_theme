@@ -79,6 +79,7 @@ html {
     background-color: #272727;
     color: white;
   }
+
   .disabled,
   .disabled_link {
     opacity: 0.3;
@@ -125,6 +126,17 @@ body::-webkit-scrollbar-thumb {
   height: auto;
 }
 #root {
+  #main_content_row {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+  }
   .owl-dots {
     .owl-dot.active span {
       background: #78ac00;
