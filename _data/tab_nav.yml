@@ -1,5 +1,4 @@
 items:
   - tabs:
-      - { title: "About", url: /services/ }
-      - { title: "Partners", url: /services/partners/ }
-    urls: [/services/, /services/partners/]
+      - { title: "Consumer", url: /documentation/consumer/, sub_pages: true }
+      - { title: "Product", url: /products/shoes/ }
