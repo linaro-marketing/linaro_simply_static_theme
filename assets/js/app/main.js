@@ -19,7 +19,7 @@ $(document).on("scroll", function() {
 });
 
 $(document).ready(function() {
-  "use strict";
+  ("use strict");
   // Open External links in a new tab
   $("a").each(function() {
     var a = new RegExp("/" + window.location.host + "/");
@@ -29,6 +29,27 @@ $(document).ready(function() {
       }
     }
   });
+
+  // Clipboard JS
+  if ($("div.highlight").length > 0) {
+    $("div.highlight").each(function(index) {
+      var uniqueId = "highlight" + index;
+      $(this).attr("id", uniqueId);
+      var copyBtn =
+        '<button id="copyBtn' +
+        index +
+        '" data-tooltip data-position="left" data-alignment="center" data-placement="left" title="Copy to Clipboard" class="btn copyBtn" data-clipboard-target="#' +
+        uniqueId +
+        '">';
+      copyBtn +=
+        '<img src="https://clipboardjs.com/assets/images/clippy.svg" width="13" alt="Copy to clipboard"></button>';
+      $(this).append(copyBtn);
+      (function() {
+        new ClipboardJS("#copyBtn" + index);
+      })();
+    });
+    $(".copyBtn").foundation(); // initialize all tooltips on the page.
+  }
 
   // Owl Carousel Instantiation
   if ($(".owl-carousel.header_carousel").length > 0) {
@@ -40,7 +61,7 @@ $(document).ready(function() {
       rewind: true,
       items: 1,
       autoplay: true,
-      responsiveClass:  true,
+      responsiveClass: true,
       lazyLoad: true,
       lazyLoadEager: 0
     });
