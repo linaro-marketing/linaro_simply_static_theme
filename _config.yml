@@ -4,12 +4,13 @@
 title: Linaro Simply Static Theme
 description: > # this means to ignore newlines until "baseurl:"
   A lightweight foundation css framework Jekyll theme.
-tagline:  A lightweight foundation css framework Jekyll theme.
+tagline: A lightweight foundation css framework Jekyll theme.
+email: contact@linaro.org
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://localhost:5000" # the base hostname & protocol for your site
 google_analytics: UA-XXXXXXXXXX-4
 favicon: /assets/images/favicon.png
-breadcrumb_image: /assets/images/content/breadcrumb.png
+# breadcrumb_image: /assets/images/content/breadcrumb.png
 # Social Media Links
 twitter_username: LinaroOrg
 facebook_username: LinaroOrg
@@ -92,6 +93,7 @@ defaults:
       permalink: "/documentation/:path/"
       strip_title: true
       toc: true
+      tab_nav: true
 # Jekyll SASS Config
 sass:
   sass_dir: _sass
@@ -174,11 +176,11 @@ toc:
   ordered: true
 # jekyll-relative-links
 relative_links:
-  enabled:     true
+  enabled: true
   collections: false
 # jekyll-titles-from-headings
 titles_from_headings:
-  enabled:     true
+  enabled: true
   strip_title: false
   collections: true
 # jekyll-optional-front-matter
