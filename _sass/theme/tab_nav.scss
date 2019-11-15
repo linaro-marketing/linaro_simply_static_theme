@@ -6,7 +6,21 @@
     }
     padding-top: 0px;
     padding-bottom: 0px;
+    @include breakpoint(small only) {
+      padding: 0px;
+      .cell {
+        margin: 0px;
+        width: 100%;
+      }
+    }
   }
+  select.nav_tab_select {
+    margin-bottom: -1px;
+    @include breakpoint(medium up only) {
+      padding-right: 0px;
+    }
+  }
+
   ul#tabbed_nav_ul {
     border: none;
     li.tabs-title {
