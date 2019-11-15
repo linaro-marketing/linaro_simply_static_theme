@@ -1,108 +1,111 @@
 #flow_wrapper {
-    #main_content_row {
-        padding-top: 30px;
+  #main_content_row {
+    padding-top: 30px;
+    @include breakpoint(small only) {
+      padding-top: 10px;
     }
-    .slider_block_row {
-        .owl-item {
-            overflow:hidden;
-            img {
-                display: block;
-                object-fit: cover;
-                height: 150px;
-                width: 100%;
-                transition: all 200ms ease-in-out;
-                &:hover {
-                    opacity: .5;
-                    transform: scale(1.1);
-                }
-            }
+  }
+  .slider_block_row {
+    .owl-item {
+      overflow: hidden;
+      img {
+        display: block;
+        object-fit: cover;
+        height: 150px;
+        width: 100%;
+        transition: all 200ms ease-in-out;
+        &:hover {
+          opacity: 0.5;
+          transform: scale(1.1);
         }
+      }
     }
-    .background_svg {
+  }
+  .background_svg {
+    position: relative;
+    height: auto;
+    z-index: 0;
+  }
+  .background_svg svg {
+    position: absolute;
+    height: 80vh;
+    left: 0;
+    top: -10vh;
+  }
+  .grid-container {
+    // Fluid Rows
+    overflow: hidden;
+    &.fluid {
+      padding-top: $flow_row_padding;
+      padding-bottom: $flow_row_padding;
+      overflow-x: hidden;
+    }
+    &.background_image_row.overlay {
+      background-position: center center;
+      background-size: cover;
+      .title_section {
+        color: white;
+      }
+    }
+  }
+  .image_section {
+    width: 200px;
+    margin-right: auto;
+    margin-left: auto;
+    z-index: 8;
+  }
+  // Blocks / Cards
+  .block_row {
+    .card {
+      -webkit-box-shadow: 0px 0px 5px -4px rgba(0, 0, 0, 0.75);
+      -moz-box-shadow: 0px 0px 5px -4px rgba(0, 0, 0, 0.75);
+      box-shadow: 0px 0px 5px -4px rgba(0, 0, 0, 0.75);
+      transition: all 200ms ease-in-out;
+      position: relative;
+      img {
+        height: 175px;
+        margin: auto auto;
         position: relative;
-        height:auto;
-        z-index:0;
-    }
-    .background_svg svg{
-        position: absolute;
-        height:80vh;
-        left:0;
-        top:-10vh;
-    }
-    .grid-container {
-        // Fluid Rows
-        overflow:hidden;
-        &.fluid {
-            padding-top:$flow_row_padding;
-            padding-bottom:$flow_row_padding;
-            overflow-x: hidden;
+        display: block;
+      }
+      &:hover {
+        transform: translateY(-5px);
+        -webkit-box-shadow: 0px 0px 35px -4px rgba(0, 0, 0, 0.85);
+        -moz-box-shadow: 0px 0px 35px -4px rgba(0, 0, 0, 0.85);
+        box-shadow: 0px 0px 35px -4px rgba(0, 0, 0, 0.85);
+        i.block_image_icon {
+          color: $primary-color;
         }
-        &.background_image_row.overlay {
-            background-position: center center;
-            background-size: cover;
-            .title_section {
-                color: white;
-            }
-        }
+      }
+      h3 {
+        color: $body-font-color;
+      }
+      p {
+        color: $body-font-color;
+      }
     }
-    .image_section {
-        width: 200px;
-        margin-right: auto;
-        margin-left: auto;
-        z-index:8;
+  }
+  .title_section {
+    z-index: 8;
+  }
+  // Members Section
+  .members_section {
+    padding: 40px 0;
+    img {
+      height: 100px;
+      position: relative;
+      margin: auto auto;
+      display: block;
     }
-    // Blocks / Cards
-    .block_row {
-        .card {
-            -webkit-box-shadow: 0px 0px 5px -4px rgba(0,0,0,0.75);
-            -moz-box-shadow: 0px 0px 5px -4px rgba(0,0,0,0.75);
-            box-shadow: 0px 0px 5px -4px rgba(0,0,0,0.75);
-            transition: all 200ms ease-in-out;
-            position: relative;
-            img {
-                height: 175px;
-                margin: auto auto;
-                position: relative;
-                display: block;
-            }
-            &:hover {
-                transform: translateY(-5px);
-                -webkit-box-shadow: 0px 0px 35px -4px rgba(0,0,0,0.85);
-                -moz-box-shadow: 0px 0px 35px -4px rgba(0,0,0,0.85);
-                box-shadow: 0px 0px 35px -4px rgba(0,0,0,0.85);
-                i.block_image_icon {
-                    color: $primary-color;
-                }
-            }
-            h3 {
-                color: $body-font-color;
-            }
-            p {
-                color: $body-font-color;
-            }
-        }
-    }
-    .title_section {
-        z-index: 8;
-    }
-    // Members Section
-    .members_section {
-        padding: 40px 0;
-        img {
-            height: 100px;
-            position: relative;
-            margin: auto auto;
-            display:block;
-        }
-    }
-    // Feature Blocks
-    .feature_block {
-        padding: 20px 0;
-        .owl-carousel {
-            z-index: 0;
-        }
-    }
+  }
+  // Feature Blocks
+  .feature_block {
+    padding: 20px 0;
     .owl-carousel {
-        z-index: 0;
+      z-index: 0;
     }
+  }
+  .owl-carousel {
+    z-index: 0;
+  }
 }
