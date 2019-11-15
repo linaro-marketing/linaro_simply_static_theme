@@ -1,10 +1,11 @@
 // Global Colours
 $foundation-palette: (
+  brand: #98ce1f,
   primary: #79ac00,
   secondary: #767676,
   success: #3adb76,
   warning: #ffae00,
-  alert: #cc4b37,
+  alert: #cc4b37
 );
 $light-gray: #e6e6e6;
 $medium-gray: #cacaca;
@@ -12,13 +13,18 @@ $dark-gray: #8a8a8a;
 $black: #0a0a0a;
 $white: #fefefe;
 $topbar-background: #fff;
-$body-font-family: 'Lato', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
-$header-font-family: 'Lato', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
+$body-font-family: "Lato", "Helvetica Neue", Helvetica, Roboto, Arial,
+  sans-serif;
+$header-font-family: "Lato", "Helvetica Neue", Helvetica, Roboto, Arial,
+  sans-serif;
 $callout-background: #8a8a8a;
 // Theme specific settings
 $flow_row_padding: 50px;
 $header_height: 500px;
-$footer_bg_color: #000;
+$footer_bg_color: #00000a;
+$footer_copyright_bg_color: #040404;
 $footer_text_color: #fff;
 $header_text_color: #fff;
 $background_header_text_color: #fff;
+$breadcrumb_text_color: #fff;
+$breadcrumb_bg_color: #040404;
