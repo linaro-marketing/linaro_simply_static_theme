@@ -1,26 +1,37 @@
 {% if page.tab_nav %}
-    {% assign tabs = page.tab_nav %}
-{% else %}
-    {% for entry in site.data.tab_nav.items %}
-        {% if entry.pages contains page.url %}
-            {% assign tabs = entry.tabs %}
-        {% endif %}
-    {% endfor %}
-{% endif %}
-{% if tabs %}
-<div class="grid-container fluid {% if include.class %}{{include.class}}{% endif %}" id="tabbed_nav_row" class="sticky" data-sticky data-margin-top="5" data-anchor="flow_wrapper" data-margin-top="1">
-    <div class="grid-container">
-        <div class="grid-x grid-margin-x">
-            <div class="cell">
-                <ul class="tabs" id="tabbed_nav_ul">
-                    {% for tab in tabs %}
-                        <li class="tabs-title {% if page.url == tab.url %}is-active{% endif %}">
-                            <a href="{{tab.url}}" {% if page.url == tab.url %}aria-selected="true"{% endif %}>{{tab.title}}</a>
-                        </li>
-                    {% endfor %}
-                </ul>
+    {% if page.tab_nav.first %}
+        {% assign tabs = page.tab_nav %}
+    {% else %}
+        {% for entry in site.data.tab_nav.items %}
+            {% for tab in entry.tabs %}
+                {% if page.url contains tab.url %}
+                    {% assign tabs = entry.tabs %}
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    {% endif %}
+    {% if tabs %}
+    <div class="grid-container fluid {% if include.class %}{{include.class}}{% endif %}" id="tabbed_nav_row"
+    class="sticky" data-sticky data-margin-top="5" data-sticky-on="medium" data-anchor="flow_wrapper">
+        <div class="grid-container">
+            <div class="grid-x grid-margin-x">
+                <div class="cell">
+                    <select onchange="location = this.options[this.selectedIndex].value;"
+                    class="nav_tab_select show-for-small-only">
+                        {% for tab in tabs %}
+                        <option {% if page.url contains tab.url %}selected="true" {% endif %} value="{{tab.url}}">{{tab.title}}</option>
+                        {% endfor %}
+                    </select>
+                    <ul class="tabs show-for-medium" id="tabbed_nav_ul">
+                        {% for tab in tabs %}
+                            <li class="tabs-title {% if page.url contains tab.url %}is-active{% endif %}">
+                                <a href="{{tab.url}}" {% if page.url == tab.url %}aria-selected="true"{% endif %}>{{tab.title}}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
-</div>
+    {% endif %}
 {% endif %}
