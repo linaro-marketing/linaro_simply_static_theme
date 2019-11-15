@@ -7,28 +7,28 @@
 
 // Post navigation row displayed at the end of a post
 .post_nav {
-    .next_post {
-        text-align: right;
-        @include breakpoint(small only) {
-            text-align:center;
-         }
+  .next_post {
+    text-align: right;
+    @include breakpoint(small only) {
+      text-align: center;
     }
-    .previous_post {
-        text-align:left;
-        @include breakpoint(small only) {
-            text-align:center;
-         }
+  }
+  .previous_post {
+    text-align: left;
+    @include breakpoint(small only) {
+      text-align: center;
     }
-    span {
-        transition: all 100ms ease-in-out;
-        padding:0 40px;
-        &.previous_post:hover {
-            margin-left:-10px;
-        }
-        &.next_post:hover {
-            margin-right: -10px;
-        }
+  }
+  span {
+    transition: all 100ms ease-in-out;
+    padding: 0 40px;
+    &.previous_post:hover {
+      margin-left: -10px;
     }
+    &.next_post:hover {
+      margin-right: -10px;
+    }
+  }
 }
 
 .featured_post {
@@ -162,27 +162,6 @@ span.reading-time {
 .pagination .current {
   padding: 0px;
 }
-#footer_sections a.btn.btn-social-icon i {
-  height: 40px;
-  width: 40px;
-  display: inline-block;
-  background-color: #1c1c1c;
-  border-radius: 20px;
-  border: 1px solid #2c2c2c;
-  color: white;
-  padding: 7px;
-}
-#footer_sections a.btn.btn-social-icon i:hover {
-  height: 40px;
-  width: 40px;
-  display: inline-block;
-  background-color: #dddddd;
-  border-radius: 20px;
-  border: 1px solid #2c2c2c;
-  color: black;
-  padding: 7px;
-}
-
 .callout {
   small {
     color: white;
