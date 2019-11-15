@@ -1,71 +1,121 @@
 #footer_sections {
-    background-color: $footer_bg_color;
-    color:$footer_text_color;
-    padding: 40px 0;
-    .cell.footer_column{
-        padding: 20px 0;
-        border-top: 1px solid #1e1e1e;
-        border-bottom: 1px solid #1e1e1e;
+  background-color: $footer_bg_color;
+  background: #00000a; /* Old browsers */
+  background: -moz-linear-gradient(
+    top,
+    #00000a 0%,
+    #030011 100%
+  ); /* FF3.6-15 */
+  background: -webkit-linear-gradient(
+    top,
+    #00000a 0%,
+    #030011 100%
+  ); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(
+    to bottom,
+    #00000a 0%,
+    #030011 100%
+  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000a', endColorstr='#030011',GradientType=0 ); /* IE6-9 */
+
+  color: $footer_text_color;
+
+  padding: 40px 0;
+  .cell.footer_column {
+    padding: 20px 0;
+    &.address {
+      padding-left: 20px;
+      p {
+        font-size: 1.2rem;
+      }
     }
-    h4{
-        color:$footer_text_color;
-         @include breakpoint(small only) {
-            text-align:center;
-            font-weight:bold;
-         }
+  }
+  a.btn.btn-social-icon i {
+    margin-right: 15px;
+    margin-top: 15px;
+    height: 40px;
+    width: 40px;
+    display: inline-block;
+    background-color: #1c1c1c;
+    border-radius: 20px;
+    color: white;
+    padding: 9px;
+    &:hover {
+      background-color: $primary-color;
+      color: black;
     }
-    ul {
-        list-style:none;
-        margin-left:0px;
-        li {
-            padding:10px;
-            transition: all .5s ease;
-            -moz-transition: all .5s ease;
-            -webkit-transition: all .5s ease;
-            padding-left:0px;
-            @include breakpoint(small only) {
-              text-align:center;
-            }
-            &:hover {
-                padding-left: 5px;
-                a {
-                    color: $primary-color;
-                }
-            }
-            a{
-                color:$footer_text_color;
-            }
+  }
+  h3 {
+    color: $footer_text_color;
+    font-weight: 900;
+    border-left: 3px solid $primary-color;
+    padding-left: 20px;
+    font-size: 32px;
+    &.highlighted_heading {
+      border-left: none;
+      color: $primary-color;
+      padding-left: 0px;
+    }
+    @include breakpoint(small only) {
+      font-weight: 900;
+      font-size: 24px;
+    }
+  }
+  ul {
+    list-style: none;
+    margin-left: 0px;
+    padding-left: 20px;
+    h5 {
+      font-weight: 900;
+    }
+    li {
+      padding: 10px;
+      transition: all 0.5s ease;
+      -moz-transition: all 0.5s ease;
+      -webkit-transition: all 0.5s ease;
+      padding-left: 0px;
+
+      p.date {
+        margin-bottom: 0px;
+      }
+      &:hover {
+        padding-left: 5px;
+        a {
+          color: $primary-color;
         }
+      }
+      a {
+        color: $footer_text_color;
+      }
     }
-    p {
-        @include breakpoint(small only) {
-            text-align:center;
-         }
+  }
+  p {
+    @include breakpoint(small only) {
     }
-    .social_media_links {
-        @include breakpoint(small only) {
-            text-align:center;
-        }
+  }
+  .social_media_links {
+    @include breakpoint(small only) {
     }
+  }
 }
 #footer_copyright {
-    background-color:$footer_bg_color;
-    color:$footer_text_color;
-    padding: 10px 0;
-    a {
-        color:$footer_text_color;
-        &:hover {
-            color: $primary-color;
-        }
+  background-color: $footer_copyright_bg_color;
+  color: $footer_text_color;
+  padding: 10px 0;
+  a {
+    color: $footer_text_color;
+    &:hover {
+      color: $primary-color;
     }
-    .cell {
-        text-align: center;
-    }
-    img {
-        height:30px;
-        width: auto;
-    }
-    span.coloured-bp{
-        color: $primary-color;
-    }
+  }
+  .cell {
+    text-align: center;
+  }
+  img {
+    height: 30px;
+    width: auto;
+  }
+  span.coloured-bp {
+    color: $primary-color;
+  }
 }
