@@ -9,6 +9,10 @@
             </div>
         </div>
         <div class="top-bar" id="universal_navbar">
+            {% if site.data.nav.container %}
+            <div class="grid-container" style="flex-grow: 1;">
+                <div class="grid-x">
+            {% endif %}
             <div class="top-bar-right">
                 <ul class="vertical medium-horizontal menu" data-closing-time="300"
                     data-responsive-menu="drilldown medium-dropdown" data-animate-height="true">
@@ -30,6 +34,10 @@
                     {% endfor %}
                 </ul>
             </div>
+            {% if site.data.nav.container %}
+                </div>
+            </div>
+            {% endif %}
         </div>
     </div>
 </div>

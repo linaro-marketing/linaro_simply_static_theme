@@ -6,6 +6,7 @@
 {% assign current_page_url = include.pageUrl | replace: "index.html", "" %}
 <div data-sticky-container>
     <div data-sticky data-options="marginTop:0;" data-sticky-on="small" id="main_sticky_nav">
+        <!--Mobile Nav-->
         <div class="title-bar" data-responsive-toggle="main_navbar" data-hide-for="medium">
             <div class="title-bar-right">
                 <button class="menu-icon  float-right" type="button" data-toggle></button>
@@ -15,73 +16,82 @@
                     </a>
             </div>
         </div>
+        <!--Desktop Nav-->
         <div class="top-bar" id="main_navbar">
-            <div class="top-bar-left">
-                <div class="hide-for-small-only top-bar-title">
-                    <a href="{{site.data.nav.brand.url}}">
-                        <img src="{{site.data.nav.brand.image_path}}" alt="{{site.title}} Brand logo" />
-                    </a>
+            {% if site.data.nav.container %}
+            <div class="grid-container" style="flex-grow:1;">
+                <div class="grid-x" >
+            {% endif %}
+                <div class="top-bar-left">
+                    <div class="hide-for-small-only top-bar-title">
+                        <a href="{{site.data.nav.brand.url}}">
+                            <img src="{{site.data.nav.brand.image_path}}" alt="{{site.title}} Brand logo" />
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div class="top-bar-right">
-                <ul class="vertical medium-horizontal menu"
-                 data-closing-time="300" data-close-on-click-inside="false"
-                 data-responsive-menu="drilldown medium-dropdown" data-animate-height="true">
-                    {% for item in site.data.nav.pages %}
+                <div class="top-bar-right">
+                    <ul class="vertical medium-horizontal menu"
+                    data-closing-time="300" data-close-on-click-inside="false"
+                    data-responsive-menu="drilldown medium-dropdown" data-animate-height="true">
+                        {% for item in site.data.nav.pages %}
 
-                        {% assign class = nil %}
-                        {% if current_page_url contains link.url %}
-                            {% assign class = 'active' %}
-                        {% endif %}
+                            {% assign class = nil %}
+                            {% if current_page_url contains link.url %}
+                                {% assign class = 'active' %}
+                            {% endif %}
 
-                        {% if item.options %}
-                            <li class="has-submenu {{class}}">
-                                <a href="#">{{item.title}}</a>
-                                <ul class="submenu menu vertical" data-submenu>
-                                    {% for sub_item in item.options %}
-                                        {% if sub_item.options %}
-                                            <li class="has-submenu">
-                                                <a href="#">{{sub_item.title}}</a>
-                                                <ul class="submenu menu vertical" data-submenu>
-                                                    {% for sub_sub_item in sub_item.options %}
-                                                        {% if sub_sub_item.options %}
-                                                            <li class="has-submenu">
-                                                                <a href="#">{{sub_sub_item.title}}</a>
-                                                                <ul class="submenu menu vertical" data-submenu>
-                                                                    {% for sub_sub_sub_item in sub_sub_item.options %}
-                                                                        <li><a href="{{sub_sub_item.url | relative_url}}">{{sub_sub_item.title}}</a></li>
-                                                                    {% endfor %}
-                                                                </ul>
-                                                        {% else %}
-                                                            <li><a href="{{sub_sub_item.url | relative_url}}">{{sub_sub_item.title}}</a></li>
-                                                        {% endif %}
-                                                    {% endfor %}
-                                                </ul>
-                                            </li>
-                                        {% else %}
-                                            <li><a href="{{sub_item.url | relative_url}}">{{sub_item.title}}</a></li>
-                                        {% endif %}
-                                    {% endfor %}
+                            {% if item.options %}
+                                <li class="has-submenu {{class}}">
+                                    <a href="#">{{item.title}}</a>
+                                    <ul class="submenu menu vertical" data-submenu>
+                                        {% for sub_item in item.options %}
+                                            {% if sub_item.options %}
+                                                <li class="has-submenu">
+                                                    <a href="#">{{sub_item.title}}</a>
+                                                    <ul class="submenu menu vertical" data-submenu>
+                                                        {% for sub_sub_item in sub_item.options %}
+                                                            {% if sub_sub_item.options %}
+                                                                <li class="has-submenu">
+                                                                    <a href="#">{{sub_sub_item.title}}</a>
+                                                                    <ul class="submenu menu vertical" data-submenu>
+                                                                        {% for sub_sub_sub_item in sub_sub_item.options %}
+                                                                            <li><a href="{{sub_sub_item.url | relative_url}}">{{sub_sub_item.title}}</a></li>
+                                                                        {% endfor %}
+                                                                    </ul>
+                                                            {% else %}
+                                                                <li><a href="{{sub_sub_item.url | relative_url}}">{{sub_sub_item.title}}</a></li>
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                    </ul>
+                                                </li>
+                                            {% else %}
+                                                <li><a href="{{sub_item.url | relative_url}}">{{sub_item.title}}</a></li>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </ul>
+                                </li>
+                            {% else %}
+                                <li class="{{class}}"><a href="{{item.url | relative_url}}"><span>{{item.title}}</span>{% if item.icon %}<i class="{{item.icon}}"></i>{% endif %}</a></li>
+                            {% endif %}
+                        {% endfor %}
+                        {% if site.data.nav.search_enabled %}
+                            <li class="has-submenu">
+                                <a href="#"><i class="icon-search-outline"></i></a>
+                                <ul class="submenu menu vertical" data-close-on-click="false" data-submenu>
+                                    <li>
+                                        <form class="form-inline" action="/search/" method="GET" target="_self" id="search_form">
+                                            <input type="search" placeholder="Search">
+                                        </form>
+                                    </li>
                                 </ul>
                             </li>
-                        {% else %}
-                            <li class="{{class}}"><a href="{{item.url | relative_url}}"><span>{{item.title}}</span>{% if item.icon %}<i class="{{item.icon}}"></i>{% endif %}</a></li>
                         {% endif %}
-                    {% endfor %}
-                    {% if site.data.nav.search_enabled %}
-                        <li class="has-submenu">
-                            <a href="#"><i class="icon-search-outline"></i></a>
-                            <ul class="submenu menu vertical" data-close-on-click="false" data-submenu>
-                                <li>
-                                    <form class="form-inline" action="/search/" method="GET" target="_self" id="search_form">
-                                        <input type="search" placeholder="Search">
-                                    </form>
-                                </li>
-                            </ul>
-                        </li>
-                    {% endif %}
-                </ul>
+                    </ul>
+                </div>
+            {% if site.data.nav.container %}
+                </div>
             </div>
+            {% endif %}
         </div>
     </div>
 </div>

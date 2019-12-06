@@ -2,6 +2,8 @@
 search_enabled: false
 # Universal Nav Bar Toggle
 universal-nav: true
+# Center nav in container
+container: true
 # Nav Brand Config
 brand:
     image_path: https://github.com/Linaro/website/raw/master/assets/images/content/linaro-logo.png
